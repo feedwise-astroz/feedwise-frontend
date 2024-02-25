@@ -20,7 +20,7 @@ const Register = () => {
 const dispatch =useDispatch()
 const navigate =useNavigate()
 
-  const [isLoading, setIsLoading] =useState(false)
+ // const [isLoading, setIsLoading] =useState(false)
 
 
   const[formData, setformData]= useState(initialState)
@@ -43,7 +43,7 @@ const navigate =useNavigate()
       fullname, email, password,confirmPassword
     };
     
-    setIsLoading(true)
+   // setIsLoading(true)
     try{
       console.log(userData)
       const data =await registerUser(userData);
@@ -52,11 +52,11 @@ const navigate =useNavigate()
       await dispatch(SET_NAME(data.fullname))
       navigate("/addcattle")
       console.log(data)
-      setIsLoading(false)
+   //   setIsLoading(false)
       
      
     }catch(error){
-      setIsLoading(false)
+     // setIsLoading(false)
        console.log(error)
     }
 

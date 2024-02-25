@@ -20,7 +20,7 @@ const Login = () => {
   const dispatch =useDispatch()
 const navigate =useNavigate()
 
-  const [isLoading, setIsLoading] =useState(false)
+  //const [isLoading, setIsLoading] =useState(false)
 
 
   const[formData, setformData]= useState(initialState)
@@ -46,16 +46,16 @@ const login= async (e) =>{
       email,
       password,
     };
-    setIsLoading(true);
+   // setIsLoading(true);
     try {
       console.log(userData)
       const data = await loginUser(userData);
       await dispatch(SET_LOGIN(true));
       await dispatch(SET_NAME(data.fullname));
       navigate("/dashboard");
-      setIsLoading(false);
+     // setIsLoading(false);
     } catch (error) {
-      setIsLoading(false);
+    //  setIsLoading(false);
     }
 
 }
