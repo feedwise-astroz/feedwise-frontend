@@ -1,65 +1,82 @@
 import React, { useState } from 'react'
+import CattleForm from '../../components/cattleForm/CattleForm';
+//import { createCattle } from '../../redux/features/cattle/cattleService';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+//import { useSelector } from 'react-redux';
+//import { selectIsLoading } from '../../redux/features/cattle/cattleSlice';
+
+import {
+    createNewCattle
+  } from "../../redux/features/cattle/cattleSlice";
+
+const initialState = [
+    {
+      type: 'cow',
+      number: 1,
+      averageDailyFeed: 0,
+    },
+  ];
 
 const Addcattle = () => {
 
-    const [type, setType] = useState('cow');
-  const [number, setNumber] = useState(1);
-  const [averageDailyFeed, setAverageDialyFeed] = useState(0);
+    const [cattleDetails, setCattleDetails] = useState(initialState);
+    const dispatch = useDispatch(); 
+    const navigate = useNavigate();
+    
+    const handleAddCattle = () => {
+        const newCattleDetails = [
+          ...cattleDetails,
+          { type: 'cow', number: 1, averageDailyFeed: 0 }
+        ];
+        setCattleDetails(newCattleDetails);
+      };
+    
+      const handleTypeChange = (index, value) => {
+        const updatedCattleDetails = cattleDetails.map((cattle, i) =>
+          i === index ? { ...cattle, type: value } : cattle
+        );
+        setCattleDetails(updatedCattleDetails);
+      };
+    
+      const handleNumberChange = (index, value) => {
+        const updatedCattleDetails = cattleDetails.map((cattle, i) =>
+          i === index ? { ...cattle, number: value } : cattle
+        );
+        setCattleDetails(updatedCattleDetails);
+      };
+    
+      const handleAverageDailyFeedChange = (index, value) => {
+        const updatedCattleDetails = cattleDetails.map((cattle, i) =>
+          i === index ? { ...cattle, averageDailyFeed: value } : cattle
+        );
+        setCattleDetails(updatedCattleDetails);
+      };
+    
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        // Add your logic to handle the form submission here
+        
+            
+            await dispatch(createNewCattle(cattleDetails));
+            navigate("/dashboard");
+          
+      };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your logic to handle the form submission here
-    console.log('Animal:', type);
-    console.log('Number of Cattle:', number);
-    console.log('Average Feed per Cattle:', averageDailyFeed);
-  };
+   
 
 
 
     return (
 
         <div>
-            <h2>Animal Feed Information</h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="animalSelect">Select Animal:</label>
-                <select id="animalSelect" name="type" value={type} onChange={(e) => setType(e.target.value)}>
-                    <option value="cow">Cow</option>
-                    <option value="sheep">Sheep</option>
-                    <option value="goat">Goat</option>
-                    {/* Add more options as needed */}
-                </select>
-
-                <br />
-
-                <label htmlFor="cattleNumber">Number of Cattle:</label>
-                <input
-                    type="number"
-                    id="cattleNumber"
-                    name="number"
-                    min="1"
-                    value={number}
-                    onChange={(e) => setNumber(e.target.value)}
-                    required
-                />
-
-                <br />
-
-                <label htmlFor="avgFeed">Average Feed per Cattle (in kg):</label>
-                <input
-                    type="number"
-                    id="avgFeed"
-                    name="averageDialyFeed"
-                    step="1"
-                    min="1"
-                    value={averageDailyFeed}
-                    onChange={(e) => setAverageDialyFeed(e.target.value)}
-                    required
-                />
-
-                <br />
-
-                <input type="submit" value="Submit" />
-            </form>
+            <CattleForm 
+            cattleDetails={cattleDetails}
+            handleAddCattle={handleAddCattle}
+            handleTypeChange={handleTypeChange}
+            handleNumberChange={handleNumberChange}
+            handleAverageDailyFeedChange={handleAverageDailyFeedChange}
+            handleSubmit={handleSubmit}/>
         </div>
     )
 }

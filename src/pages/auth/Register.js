@@ -45,13 +45,13 @@ const navigate =useNavigate()
     
    // setIsLoading(true)
     try{
-      console.log(userData)
+      //console.log(userData)
       const data =await registerUser(userData);
       
       await dispatch(SET_LOGIN(true))
       await dispatch(SET_NAME(data.fullname))
       navigate("/addcattle")
-      console.log(data)
+     // console.log(data)
    //   setIsLoading(false)
       
      
