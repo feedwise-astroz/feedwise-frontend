@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-//import styles from "./auth.scss"
+
 import { Link, useNavigate } from 'react-router-dom'
-//import {toast} from 'react-toastify'
-//import { validateEmail } from '../../service/authService'
+
 import { registerUser } from '../../service/authService'
 
 import { useDispatch } from 'react-redux'
@@ -45,13 +44,13 @@ const navigate =useNavigate()
     
    // setIsLoading(true)
     try{
-      console.log(userData)
+      //console.log(userData)
       const data =await registerUser(userData);
       
       await dispatch(SET_LOGIN(true))
       await dispatch(SET_NAME(data.fullname))
       navigate("/addcattle")
-      console.log(data)
+     // console.log(data)
    //   setIsLoading(false)
       
      

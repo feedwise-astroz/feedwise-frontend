@@ -48,7 +48,7 @@ const login= async (e) =>{
     };
    // setIsLoading(true);
     try {
-      console.log(userData)
+      //console.log(userData)
       const data = await loginUser(userData);
       await dispatch(SET_LOGIN(true));
       await dispatch(SET_NAME(data.fullname));
