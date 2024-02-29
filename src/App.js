@@ -26,6 +26,7 @@ function App() {
     async function loginStatus(){
       const status =await getLoginStatus();
       dispatch(SET_LOGIN(status))
+      console.log(status)
     }
     loginStatus()
   },[dispatch]);
