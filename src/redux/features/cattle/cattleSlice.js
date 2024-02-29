@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, combineSlices } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import cattleService, { createCattle } from './cattleService';
 import { toast } from 'react-toastify';
 
