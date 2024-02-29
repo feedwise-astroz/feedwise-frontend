@@ -10,7 +10,7 @@ import Layout from "./components/layout/Layout";
 import Dashboard from "./pages/dashboard/Dashboard"; 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Addcattle from "./pages/addcattle/AddCattle";
+import AddCattle from "./pages/addcattle/AddCattle";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getLoginStatus } from "./service/authService";
@@ -42,7 +42,7 @@ function App() {
       
       <Route path="/resetpassword/:resetToken" element={<Reset />}/>
 
-      <Route path="/addcattle" element={<Addcattle />}/>
+      <Route path="/addcattle" element={<AddCattle />}/>
       {/* mmm */}
       <Route path="/dashboard" element={
         
