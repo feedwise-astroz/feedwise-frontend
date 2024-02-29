@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-//import styles from "./auth.scss"
+
 import { Link, useNavigate } from 'react-router-dom'
-//import {toast} from 'react-toastify'
-//import { validateEmail } from '../../service/authService'
+
 import { registerUser } from '../../service/authService'
 
 import { useDispatch } from 'react-redux'

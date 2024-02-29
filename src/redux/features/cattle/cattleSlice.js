@@ -33,9 +33,6 @@ const cattleSlice = createSlice({
   name: "cattle",
   initialState,
   reducers: {
-    CALC_STORE_VALUE(state, action){
-        console.log("store value")
-    }
   },
   extraReducers: (builder) =>{
     builder.addCase(createCattle.pending, (state) =>{
@@ -58,7 +55,7 @@ const cattleSlice = createSlice({
   },
 });
 
-export const {CALC_STORE_VALUE} = cattleSlice.actions
+
 export const selectIsLoading = (state) => state.product.isLoading;
 
 export default cattleSlice.reducer

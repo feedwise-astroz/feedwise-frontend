@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import CattleForm from '../../components/cattleForm/CattleForm';
-//import { createCattle } from '../../redux/features/cattle/cattleService';
+
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-//import { useSelector } from 'react-redux';
-//import { selectIsLoading } from '../../redux/features/cattle/cattleSlice';
+
 
 import {
     createNewCattle
