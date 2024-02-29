@@ -17,7 +17,7 @@ const initialState = [
     },
   ];
 
-const Addcattle = () => {
+const AddCattle = () => {
 
     const [cattleDetails, setCattleDetails] = useState(initialState);
     const dispatch = useDispatch(); 
@@ -80,4 +80,6 @@ const Addcattle = () => {
     )
 }
 
-export default Addcattle
+export default AddCattle
+
+
