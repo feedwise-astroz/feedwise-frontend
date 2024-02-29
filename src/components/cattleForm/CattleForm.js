@@ -1,5 +1,4 @@
 import React from 'react'
-import Addcattle from '../../pages/addcattle/AddCattle'
 
 const CattleForm = ({cattleDetails,handleAddCattle,handleTypeChange,handleNumberChange,handleAverageDailyFeedChange,handleSubmit}) => {
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
-import { toast } from "react-toastify";
+
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 
