@@ -10,7 +10,7 @@ import Layout from "./components/layout/Layout";
 import Dashboard from "./pages/dashboard/Dashboard"; 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AddCattle from "./pages/addcattle/AddCattle";
+import Addcattle from "./pages/addcattle/AddCattle";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getLoginStatus } from "./service/authService";
@@ -26,7 +26,6 @@ function App() {
     async function loginStatus(){
       const status =await getLoginStatus();
       dispatch(SET_LOGIN(status))
-      console.log(status)
     }
     loginStatus()
   },[dispatch]);
@@ -43,7 +42,7 @@ function App() {
       
       <Route path="/resetpassword/:resetToken" element={<Reset />}/>
 
-      <Route path="/addcattle" element={<AddCattle />}/>
+      <Route path="/addcattle" element={<Addcattle />}/>
       {/* mmm */}
       <Route path="/dashboard" element={
         
