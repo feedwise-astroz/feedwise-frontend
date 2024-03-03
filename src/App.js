@@ -49,13 +49,7 @@ function App() {
         <Route path="/addcattle" element={<AddCattle />} />
         {/* mmm */}
         <Route path="/dashboard" element={
-
-          <Sidebar>
-            <Layout>
-
               <Dashboard />
-            </Layout>
-          </Sidebar>
         } />
         <Route path="/inventory" element={
 
