@@ -26,7 +26,7 @@ const AddCattle = () => {
     const handleAddCattle = () => {
         const newCattleDetails = [
           ...cattleDetails,
-          { type: 'cow', number: 1, averageDailyFeed: 0 }
+          initialState
         ];
         setCattleDetails(newCattleDetails);
       };
@@ -56,7 +56,7 @@ const AddCattle = () => {
         e.preventDefault();
         // Add your logic to handle the form submission here
         
-            
+            console.log(cattleDetails)
             await dispatch(createNewCattle(cattleDetails));
             navigate("/dashboard");
           
