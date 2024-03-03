@@ -8,8 +8,7 @@ import Layout from '../../components/layout/Layout';
 const Dashboard = ({ children }) => {
   useRedirectLoggedOutUser("/login");
 
-
-
+  
   return (
     <Sidebar>
       <Layout>
