@@ -20,13 +20,14 @@ const initialState = {
 
 // Create New Product
 export const createNewFeed = createAsyncThunk(
-  "products/create",
+  "feeds/create",
   async (formData, thunkAPI) => {
     try {
-     console.log(formData)
+   
       return await inventoryService.createFeed(formData);
 
     } catch (error) {
+      
       const message =
         (error.response &&
           error.response.data &&
@@ -41,7 +42,7 @@ export const createNewFeed = createAsyncThunk(
 
 // Get all products
 export const getFeeds = createAsyncThunk(
-    "products/getAll",
+    "feeds/getAll",
     async (_, thunkAPI) => {
       try {
         return await inventoryService.getFeeds();
@@ -77,6 +78,25 @@ export const getFeed = createAsyncThunk(
   }
 );
 
+// Update Feed
+export const updateFeed = createAsyncThunk(
+  "feed/updateFeed",
+  async ({ id, formData }, thunkAPI) => {
+    try {
+      console.log(formData);
+      return await inventoryService.updateFeed(id, formData);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      console.log(message);
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 
 
 const inventorySlice = createSlice({
@@ -94,7 +114,7 @@ const inventorySlice = createSlice({
         state.isSuccess = true;
         state.isError = false;
         console.log(action.payload);
-        state.feeds.push(action.payload);
+       
         toast.success("Product added successfully");
       })
       .addCase(createNewFeed.rejected, (state, action) => {
@@ -110,7 +130,6 @@ const inventorySlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.isError = false;
-        console.log(action.payload);
         state.feeds = action.payload;
       })
       .addCase(getFeeds.rejected, (state, action) => {
@@ -134,6 +153,21 @@ const inventorySlice = createSlice({
         state.message = action.payload;
         toast.error(action.payload);
       })
+      .addCase(updateFeed.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateFeed.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isError = false;
+        toast.success("Product updated successfully");
+      })
+      .addCase(updateFeed.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+        toast.error(action.payload);
+      });
       
   
     },
@@ -141,5 +175,6 @@ const inventorySlice = createSlice({
   
   
   export const selectIsLoading = (state) => state.feed.isLoading;
+  export const selectFeed = (state) => state.feed.feed;
 
   export default inventorySlice.reducer

@@ -22,6 +22,9 @@ const AddCattle = () => {
     const [cattleDetails, setCattleDetails] = useState(initialState);
     const dispatch = useDispatch(); 
     const navigate = useNavigate();
+
+
+ 
     
     const handleAddCattle = () => {
         const newCattleDetails = [

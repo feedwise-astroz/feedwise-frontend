@@ -18,6 +18,8 @@ import { SET_LOGIN } from "./redux/features/auth/authSlice";
 import Inventory from "./pages/inventory/Inventory";
 import AddFeed from "./pages/addfeed/AddFeed";
 import FeedDetail from "./components/feed/FeedDetail";
+import Profile from "./pages/profile/Profile";
+import EditFeed from "./pages/editfeed/EditFeed";
 
 axios.defaults.withCredentials = true;
 
@@ -28,7 +30,7 @@ function App() {
   useEffect(() => {
     async function loginStatus() {
       const status = await getLoginStatus();
-      console.log(status)
+    
       dispatch(SET_LOGIN(status))
     }
     loginStatus()
@@ -80,10 +82,29 @@ function App() {
 
           <Sidebar>
             <Layout>
-              <FeedDetail/>
+              <FeedDetail />
             </Layout>
           </Sidebar>
         } />
+
+        <Route path="/profile" element={
+
+          <Sidebar>
+            <Layout>
+              <Profile />
+            </Layout>
+          </Sidebar>
+        } />
+        <Route path="/editFeed/:feedId" element={
+
+          <Sidebar>
+            <Layout>
+              <EditFeed/>
+            </Layout>
+          </Sidebar>
+        } />
+
+        
 
 
       </Routes>
