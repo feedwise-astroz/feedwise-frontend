@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
-import cattleService, { createCattle } from './cattleService';
+import cattleService, { createCattle} from './cattleService';
 import { toast } from 'react-toastify';
 
 const initialState = {
@@ -12,13 +12,13 @@ const initialState = {
     message: false,
 
 }
-
 // Create New Cattle
 export const createNewCattle = createAsyncThunk(
     "cattles/create",
     async (formData, thunkAPI) =>{
         try{
             return await cattleService.createCattle(formData)
+            
 
         }catch(error){
         //    console.log(error.response.data.error);
@@ -28,6 +28,9 @@ export const createNewCattle = createAsyncThunk(
         }
     }
 )
+
+
+
 
 const cattleSlice = createSlice({
   name: "cattle",
@@ -42,7 +45,7 @@ const cattleSlice = createSlice({
         state.isLoading = false;
         state.isSuccess= true;
         console.log(action.payLoad)
-        state.cattles.push(action.payLoad);
+        
         toast.success("Cattle added Successfully")
     })
     .addCase(createCattle.rejected, (state, action)=> {
@@ -51,11 +54,13 @@ const cattleSlice = createSlice({
          state.message = action.payLoad;
         toast.success(action.payLoad)
     })
+    
 
   },
 });
 
 
-export const selectIsLoading = (state) => state.product.isLoading;
+export const selectIsLoading = (state) => state.cattle.isLoading;
+export const allcattles = (state) => state.cattle.cattles
 
 export default cattleSlice.reducer

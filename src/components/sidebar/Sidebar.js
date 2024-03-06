@@ -19,6 +19,8 @@ const Sidebar = ({ children }) => {
         </main>
       
     </div>
+    
+    
   )
 }
 
