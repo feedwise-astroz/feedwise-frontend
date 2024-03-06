@@ -34,7 +34,7 @@ const FeedDetail = () => {
 
 
   const isLoggedIn = useSelector(selectIsLoggedIn)
-  const { feed, isLoading, isError, message } = useSelector((state) => state.feed)
+  const { feed, isError, message } = useSelector((state) => state.feed)
  let myvalue=""
 
   useEffect(() => {
