@@ -23,11 +23,14 @@ const Inventory = () => {
 
     
   return (
-    <div>
-      <Link to="/addfeed">Add New Feed Item</Link><br></br>
-      <FeedList feeds={feeds} isLoading={isLoading}/>
-
+    <div className="p-4 md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto h-screen flex items-center justify-center">
+    <div className="w-full flex flex-col items-center justify-center">
+        <h2 className="text-2xl font-bold mb-2 text-center">Inventory System</h2>
+        <p className="text-sm text-black-600 mb-6 text-center">A table Summary of all the feed item that you have added into your Inventory log</p>
+        <Link to="/addfeed" className="text-blue-500 mb-4 block">Add New Feed Item</Link>
+        <FeedList feeds={feeds} isLoading={isLoading} />
     </div>
+</div>
   )
 }
 
