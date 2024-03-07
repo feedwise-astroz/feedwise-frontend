@@ -10,8 +10,8 @@ const getNotifications = async () => {
   };
 
   //Get a Notification
-  const getNotification = async () => {
-    const response = await axios.get(`${BACKEND_URL}/api/notifications/:id`);
+  const getNotification = async (id) => {
+    const response = await axios.get(`${BACKEND_URL}/api/notifications/`+id);
     return response.data;
   };
 
