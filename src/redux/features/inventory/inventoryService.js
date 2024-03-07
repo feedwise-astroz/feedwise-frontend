@@ -21,8 +21,7 @@ const getFeeds = async () => {
 const getFeed = async (id) => {
  
   const response = await axios.get(`${BACKEND_URL}/api/feedInventory/getFeedData/` + id);
-  console.log("from I service")
-  console.log(response.data);
+
   return response.data;
 };
 

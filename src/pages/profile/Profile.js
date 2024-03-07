@@ -11,7 +11,6 @@ import { getCattles } from '../../redux/features/cattle/cattleService';
 const Profile = () => {
   useRedirectLoggedOutUser("/login")
 
-  useRedirectLoggedOutUser("/login");
   const dispatch = useDispatch();
 
 
