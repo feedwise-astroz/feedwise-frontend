@@ -20,6 +20,7 @@ import AddFeed from "./pages/addfeed/AddFeed";
 import FeedDetail from "./components/feed/FeedDetail";
 import Profile from "./pages/profile/Profile";
 import EditFeed from "./pages/editfeed/EditFeed";
+import Notifications from "./pages/notifications/Notifications";
 
 axios.defaults.withCredentials = true;
 
@@ -100,6 +101,14 @@ function App() {
           <Sidebar>
             <Layout>
               <EditFeed/>
+            </Layout>
+          </Sidebar>
+        } />
+        <Route path="/notification" element={
+
+          <Sidebar>
+            <Layout>
+              <Notifications/>
             </Layout>
           </Sidebar>
         } />
