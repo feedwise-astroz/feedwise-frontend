@@ -14,8 +14,6 @@ const Notifications = () => {
     const [notifications, setNotifications] = useState([])
 
     const [message,setMessage]=useState(null)
-    let notification=""
-    
     const [popup, setPopup] = useState(false);
 
     useEffect(() => {
