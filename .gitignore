@@ -132,3 +132,4 @@ dist
 
 build/
 
+git clean -f tailwind.config.js
