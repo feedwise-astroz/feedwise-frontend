@@ -1,6 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ResponsivePie } from '@nivo/pie';
-const FeedPieChart = ({ data }) => {
+import inventoryService from '../../../redux/features/inventory/inventoryService';
+
+
+
+const FeedPieChart = () => { 
+
+  const [activefeed, setActivefeed] = useState([]);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function getAnalytics() {
+      try {
+        const Activedata = await inventoryService.getActiveFeed();
+        setActivefeed(Activedata.data);
+
+        const totalFeedQuantity = activefeed.reduce(
+          (total, item) => total + item.feedQuantity,
+          0
+        );
+
+        const newData = activefeed.map((item) => ({
+          id: item.feedName,
+          label: item.feedName,
+          value: Math.round((item.feedQuantity / totalFeedQuantity) * 100),
+        }));
+
+        setData(newData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    getAnalytics();
+  }, [activefeed]);
+
+
+
+
+
   return (
     <div style={{ height: '400px', position: 'relative' }}>
       <ResponsivePie

@@ -29,14 +29,25 @@ const getFeed = async (id) => {
 const updateFeed = async (id, formData) => {
 
   const response = await axios.patch(`${BACKEND_URL}/api/feedInventory/updateFeedData/`+id, formData);
-  console.log(response.data)
+  
   return response.data;
 };
+
+
+//get Active feed data
+
+const getActiveFeed = async () =>{
+
+  const response = await axios.get(`${BACKEND_URL}/api/feedInventory/getActiveFeedData/`);
+  
+  return response.data;
+};
+
 const inventoryService = {
     createFeed,
     getFeeds,
     getFeed,
-    updateFeed
+    updateFeed,getActiveFeed
    
   };
   
