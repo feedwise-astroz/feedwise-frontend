@@ -13,28 +13,7 @@ const Dashboard = ({ children }) => {
 
 
   
-  const data = [
-    {
-      id: 'Grass 2',
-      label: 'Grass 2',
-      value: 37,
-    },
-    {
-      id: 'grass',
-      label: 'grass',
-      value: 3,
-    },
-    {
-      id: 'karthik',
-      label: 'grass edjnd',
-      value: 20,
-    },
-    {
-      id: 'sandeep',
-      label: 'grass sdkjnks',
-      value: 40,
-    },
-  ];
+  
 
   const purchaseData = [
     { month: 'Jan', purchases: 10 },
@@ -45,10 +24,10 @@ const Dashboard = ({ children }) => {
   return (
     <div>
       <h1>Feed Quantity Pie Chart</h1>
-      <FeedPieChart data={data} />
+      <FeedPieChart />
       <FeedBarGraph/>
 
-      <h1>Purchase History</h1>
+      
       <FeedLineGraph data={purchaseData} />
     </div>
   );
