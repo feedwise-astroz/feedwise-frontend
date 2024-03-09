@@ -11,7 +11,7 @@ const FeedForm = ({
 
 
   const [animals, setAnimals] = useState([]);
-  
+
 
   useEffect(() => {
 
@@ -55,7 +55,10 @@ const FeedForm = ({
         isMulti
         name="animalTypes"
         options={animals.map(type => ({ value: type, label: type }))}
-        onChange={handleChange1}
+        onChange={(selectedOptions) => {
+          const selectedAnimalTypes = selectedOptions.map(option => option.value);
+          handleChange1({ target: { name: 'animalTypes', value: selectedAnimalTypes } });
+        }}
       />
       <br />
       <label htmlFor="feedQuantity">Feed Quantity:</label>
