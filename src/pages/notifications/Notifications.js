@@ -20,7 +20,7 @@ const Notifications = () => {
 
         async function getNotificatioData() {
             const notificationData = await notificationService.getNotifications();
-       console.log(notificationData);
+     //  console.log(notificationData);
             setNotifications(notificationData.data)
         }
         getNotificatioData();
@@ -32,7 +32,7 @@ const Notifications = () => {
 
         setPopup(!popup);
         const data1 = await notificationService.getNotification(id);
-          console.log(data1);
+        //  console.log(data1);
        
         setMessage(data1.data)
 

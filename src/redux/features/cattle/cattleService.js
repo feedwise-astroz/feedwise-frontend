@@ -24,7 +24,7 @@ export const getCattles = async () => {
     try {
       const response = await axios.get(`${BACKEND_URL}/api/cattle/getCattleData`);
 
-      console.log(response.data)
+      //console.log(response.data)
       return response.data;
     } catch (error) {
       const message =

@@ -26,7 +26,7 @@ const Profile = () => {
    
     async function getUserData() {
       const data = await getUser();
-      console.log(data);
+      //console.log(data);
 
       setProfile(data);
       //   setIsLoading(false);
@@ -35,7 +35,7 @@ const Profile = () => {
     }
     async function getCattleData() {
       const data1 = await getCattles();
-       console.log(data1)
+      
   
       setCattles(data1);
       

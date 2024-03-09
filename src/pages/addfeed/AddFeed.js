@@ -29,6 +29,8 @@ const AddFeed = () => {
   const handleChange1 = (e) => {
     const { name, value, type, options } = e.target || {};
     let formattedValue = value;
+
+   
     if (name === 'feedQuantity' || name === 'purchasePrice') {
       formattedValue = parseFloat(value);
     }
@@ -56,9 +58,11 @@ const AddFeed = () => {
       [name]: date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }),
     }));
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userData = { ...feedDetails };
+    console.log(userData);
     
     await dispatch(createNewFeed(userData));
     console.log(feedDetails);

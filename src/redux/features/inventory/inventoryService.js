@@ -8,6 +8,8 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const createFeed = async (formData) => {
     console.log(formData)
   const response = await axios.post(`${BACKEND_URL}/api/feedInventory/addFeedData`, formData);
+  console.log("Newly Added Feed Details");
+  console.log(response)
   return response.data;
 };
 

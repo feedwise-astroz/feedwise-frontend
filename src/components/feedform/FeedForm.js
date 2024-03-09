@@ -19,7 +19,6 @@ const FeedForm = ({
       const data1 = await getCattles();
 
       const data2 = data1.data
-      console.log(data2)
 
       const uniqueAnimalTypes = Array.from(new Set(data2.map(cattle => cattle.type)));
 
