@@ -35,7 +35,7 @@ export const registerUser = async (userData) => {
   } else {
       // If the error response structure is unexpected or does not contain error messages, display a generic error message
       toast.error(error.response.data);
-
+  }
   }
 };
 
