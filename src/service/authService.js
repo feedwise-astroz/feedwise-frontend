@@ -21,15 +21,20 @@ export const registerUser = async (userData) => {
     if (response.status === '201') {
       toast.success("User Registered successfully");
     }
-    //console.log("this is response data")
+    
     return response.data;
 
   } catch (error) {
-    const errors = error.response.data.error; // Assuming errors is an array of error messages
-
-    errors.forEach(errorMessage => {
-      toast.error(errorMessage);
-    });
+    if (error.response && error.response.data && error.response.data.error && Array.isArray(error.response.data.error)) {
+      const errors = error.response.data.error;
+      
+      // Iterate over the array of error messages and display each one using toast
+      errors.forEach(errorMessage => {
+          toast.error(errorMessage);
+      });
+  } else {
+      // If the error response structure is unexpected or does not contain error messages, display a generic error message
+      toast.error(error.response.data);
 
   }
 };
