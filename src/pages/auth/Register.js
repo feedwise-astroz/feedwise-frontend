@@ -55,8 +55,7 @@ const Register = () => {
       // console.log(data)
       //   setIsLoading(false)
     } catch (error) {
-      // setIsLoading(false)
-      console.log(error);
+      
     }
   };
 

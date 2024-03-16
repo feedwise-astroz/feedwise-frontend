@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import 'react-datepicker/dist/react-datepicker.css';
 import { createNewFeed } from '../../redux/features/inventory/inventorySlice';
 import FeedForm from '../../components/feedform/FeedForm';
-import { allcattles } from '../../redux/features/cattle/cattleSlice';
+//import { allcattles } from '../../redux/features/cattle/cattleSlice';
+import PopUp from '../../components/popUp/PopUp';
 
 
 const initialState = {
@@ -20,6 +21,7 @@ const initialState = {
 
 const AddFeed = () => {
   const [feedDetails, setFeedDetails] = useState(initialState);
+  const [showPopUp, setShowPopUp] = useState(false);
   
   const dispatch = useDispatch();
 
@@ -59,18 +61,26 @@ const AddFeed = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =  (e) => {
+    e.preventDefault();
+   setShowPopUp(true)
+  };
+
+  const handleSave = async (e) => {
     e.preventDefault();
     const userData = { ...feedDetails };
     console.log(userData);
     
     await dispatch(createNewFeed(userData));
-    console.log(feedDetails);
-    console.log(allcattles)
+    
     setFeedDetails(initialState);
+    setShowPopUp(false);
   };
 
+
+
   return (
+    <>
     <FeedForm feedName={feedDetails.feedName}
       animalTypes={feedDetails.animalTypes}
       feedQuantity={feedDetails.feedQuantity}
@@ -82,7 +92,19 @@ const AddFeed = () => {
       handleSubmit={handleSubmit}
       handleChange1={handleChange1}
       handleDateChange={handleDateChange}
+
        />
+
+       {
+        showPopUp && ( // Render the popup conditionally
+        <PopUp
+          open={showPopUp}>
+            <p>Are you Sure you want to Save</p>
+          <button onClick={() => setShowPopUp(false)}>Cancel</button>
+          <button onClick={handleSave}>Save</button>
+        </PopUp>
+      )}
+    </>
   );
 };
 

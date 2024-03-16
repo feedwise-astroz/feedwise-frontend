@@ -10,7 +10,7 @@ const CattleForm = ({cattleDetails,handleAddCattle,handleTypeChange,handleNumber
       <form onSubmit={handleSubmit}>
         {cattleDetails.map((cattle, index) => (
           <div key={index}>
-            <label htmlFor={`type${index}`}>Cattle Type {index + 1}</label>
+            <label htmlFor={`type${index}`}>Animal Type {index + 1}</label>
             <select
               id={`type${index}`}
               name={`type${index}`}

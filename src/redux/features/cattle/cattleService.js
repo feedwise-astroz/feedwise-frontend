@@ -27,6 +27,7 @@ export const getCattles = async () => {
       //console.log(response.data)
       return response.data;
     } catch (error) {
+      
       const message =
         (error.response && error.response.data && error.response.data.message) ||
         error.message ||
