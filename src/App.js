@@ -21,6 +21,7 @@ import FeedDetail from "./components/feed/FeedDetail";
 import Profile from "./pages/profile/Profile";
 import EditFeed from "./pages/editfeed/EditFeed";
 import Notifications from "./pages/notifications/Notifications";
+import MobileBottombar from "./components/sidebar/MobileBottombar";
 
 axios.defaults.withCredentials = true;
 
@@ -40,85 +41,41 @@ function App() {
 
   return (
     <BrowserRouter>
-      <ToastContainer />
+    <ToastContainer />
+  
+
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot" element={<Forgot />} />
-
         <Route path="/resetpassword/:resetToken" element={<Reset />} />
-
         <Route path="/addcattle" element={<AddCattle />} />
-        {/* mmm */}
-        <Route path="/dashboard" element={
-
-          <Sidebar>
-            <Layout>
-
-              <Dashboard />
-            </Layout>
-          </Sidebar>
-        } />
-        <Route path="/inventory" element={
-
-          <Sidebar>
-            <Layout>
-
-              <Inventory />
-            </Layout>
-          </Sidebar>
-        } />
-
-        <Route path="/addfeed" element={
-
-          <Sidebar>
-            <Layout>
-              <AddFeed />
-            </Layout>
-          </Sidebar>
-        } />
-
-        <Route path="/getFeedData/:feedId" element={
-
-          <Sidebar>
-            <Layout>
-              <FeedDetail />
-            </Layout>
-          </Sidebar>
-        } />
-
-        <Route path="/profile" element={
-
-          <Sidebar>
-            <Layout>
-              <Profile />
-            </Layout>
-          </Sidebar>
-        } />
-        <Route path="/editFeed/:feedId" element={
-
-          <Sidebar>
-            <Layout>
-              <EditFeed/>
-            </Layout>
-          </Sidebar>
-        } />
-        <Route path="/notification" element={
-
-          <Sidebar>
-            <Layout>
-              <Notifications/>
-            </Layout>
-          </Sidebar>
-        } />
-
-        
-
-
       </Routes>
-    </BrowserRouter>
-  );
+    
+    <div className="app-container">
+              {/* Sidebar hidden on mobile */}
+              <Sidebar className="hidden md:block" />
+
+{/* MobileBottombarItem hidden on desktop */}
+    <MobileBottombar className="block md:hidden" />
+      <div className="layout-container">
+      <Layout>
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/inventory" element={<Inventory />} />
+          <Route path="/addfeed" element={<AddFeed />} />
+          <Route path="/getFeedData/:feedId" element={<FeedDetail />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/editFeed/:feedId" element={<EditFeed />} />
+          <Route path="/notification" element={<Notifications />} />
+        </Routes>
+      </Layout>
+      </div>
+    </div>
+  </BrowserRouter>
+   
+    );
 }
 
 

@@ -41,7 +41,7 @@ const FeedList = ({ feeds, isLoading }) => {
             feedData.map((feed) => (
               <tr key={feed._id} className="hover:bg-gray-100 cursor-pointer" onClick={() => handleRowClick(feed._id)}>
                 <td className="border-b border-gray-200 px-4 py-2">
-                  {feed.status === "Newly Active" || feed.status === "Active" ? (
+                  {feed.status === "Newly Active" || feed.status === "active" ? (
                     <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>
                   ) : (
                     <span className="inline-block w-2 h-2 rounded-full bg-red-500 mr-2"></span>

@@ -5,13 +5,12 @@ import './Layout.scss'
 
 const Layout = ({children}) => {
   return (
-   
-    <>
-        <Header />
-        <div className="main-content">
-               {children}
-        </div>
-     </>
+<div className="layout">
+      <Header />
+      <div className="main-content">
+        {children}
+      </div>
+    </div>
   )
 }
 

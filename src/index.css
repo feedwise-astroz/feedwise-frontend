@@ -7,3 +7,18 @@ body{
 
     background-color: #F8F8F8;
 }
+
+
+.app-container {
+    display: flex;
+    height: 100vh; /* Adjust the height as needed */
+  }
+  
+
+  
+  /* Styles for the Layout */
+  .layout-container {
+    flex: 1;
+    height: 100vh;
+  }
+  

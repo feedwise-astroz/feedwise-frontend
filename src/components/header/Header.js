@@ -24,34 +24,23 @@ const Header = () => {
   };
 
   return (
-    <div>
+<header className="sm:hidden bg-blue-500">
+      {/* Logo */}
+      <img
+        src="path/to/logo.png"
+        alt="Logo"
+        className="w-24"
+      />
+      {/* User Profile */}
       <div>
         <img
-          src={Logo}
-          alt="Logo"
-          // onClick={goHome}
-          className="logo"
+          src="path/to/profile-photo.jpg"
+          alt="Profile"
+          className="photo"
         />
+        <span className="name">User Name</span>
       </div>
-      <div className="sm:hidden">
-        <div onClick={toggleDropdown}>
-          <img
-            src="path/to/profile-photo.jpg" // Replace with the actual path to the photo
-            alt="Profile"
-            className="photo"
-          />
-          <span className="name">{name}</span>
-        </div>
-
-        {isDropdownVisible && (
-          <div>
-            {/* Dropdown content */}
-            <button onClick={logout}>Logout</button>
-            {/* Add other dropdown items as needed */}
-          </div>
-        )}
-      </div>
-    </div>
+    </header>
   );
 };
 
