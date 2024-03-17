@@ -47,7 +47,7 @@ const Sidebar = ({ children }) => {
           >
             <img
               src="path/to/profile-photo.jpg"
-              alt="profile photo"
+              alt="user profile"
               className="photo"
             />
             <span className="name">{name}</span>
