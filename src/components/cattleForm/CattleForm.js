@@ -17,10 +17,14 @@ const CattleForm = ({cattleDetails,handleAddCattle,handleTypeChange,handleNumber
               value={cattle.type}
               onChange={(e) => handleTypeChange(index, e.target.value)}
             >
-              <option value="cow">Cow</option>
-              <option value="sheep">Sheep</option>
-              <option value="goat">Goat</option>
-              {/* Add more options as needed */}
+              <option value="cow">Cows</option>
+              <option value="sheep">Sheeps</option>
+              <option value="Goats">Goats</option>
+              <option value="Pigs">Pigs</option>
+              <option value="Horses">Horses</option>
+              <option value="Diary Buffalo">Diary Buffalo</option>
+              <option value="Turkeys">Turkeys</option>
+              <option value="chickens">chickens</option>
             </select>
 
             <br />

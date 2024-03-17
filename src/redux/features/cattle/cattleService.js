@@ -36,8 +36,15 @@ export const getCattles = async () => {
     }
   };
 
+  export const updateCattles = async (formData) => {
+
+    const response = await axios.patch(`${BACKEND_URL}/api/cattle/updateCattle`, formData);
+    console.log(response.data)
+    return response.data;
+  };
+
 const cattleService ={
-    createCattle
+    createCattle,getCattles,updateCattles
 }
 
 export default cattleService;

@@ -17,7 +17,7 @@ const Sidebar = ({ children }) => {
   const logout = async () => {
     await logoutUser();
     await dispatch(SET_LOGIN(false));
-    navigate("/login");
+    navigate("/");
     setIsDropdownVisible(false);
   };
   const toggleDropdown = () => {
