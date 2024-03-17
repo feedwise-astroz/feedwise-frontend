@@ -95,9 +95,7 @@ const EditFeed = () => {
             txnID: feed.txnID,
         };
 
-        console.log(requestBody);
-        console.log(feedId);
-
+        
         await dispatch(updateFeed({ id: feedId, formData: requestBody }));
         await dispatch(getFeeds());
         navigate("/inventory");
