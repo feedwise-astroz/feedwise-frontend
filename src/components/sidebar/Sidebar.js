@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { SET_LOGIN, selectName } from "../../redux/features/auth/authSlice";
 import { logoutUser } from "../../service/authService";
-import MobileBottombar from "./MobileBottombar";
 import Logo from "../../assets/logo/Logo.png";
 
 const Sidebar = ({ children }) => {
@@ -48,6 +47,7 @@ const Sidebar = ({ children }) => {
           >
             <img
               src="path/to/profile-photo.jpg"
+              alt="profile photo"
               className="photo"
             />
             <span className="name">{name}</span>

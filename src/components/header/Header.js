@@ -27,19 +27,24 @@ const Header = () => {
 <header className="sm:hidden bg-blue-500">
       {/* Logo */}
       <img
-        src="path/to/logo.png"
+        src={Logo}
         alt="Logo"
         className="w-24"
       />
       {/* User Profile */}
-      <div>
+      <div onClick={toggleDropdown}>
         <img
           src="path/to/profile-photo.jpg"
           alt="Profile"
           className="photo"
         />
-        <span className="name">User Name</span>
+        <span className="name">{name}</span>
       </div>
+      {isDropdownVisible && (
+        <div>
+          <button onClick={logout}>Logout</button>
+        </div>
+      )}
     </header>
   );
 };
