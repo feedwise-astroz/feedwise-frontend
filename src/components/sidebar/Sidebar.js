@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { SET_LOGIN, selectName } from "../../redux/features/auth/authSlice";
 import { logoutUser } from "../../service/authService";
 import MobileBottombar from "./MobileBottombar";
+import Logo from "../../assets/logo/Feedwise_Logo.svg";
+import Logomark from "../../assets/logo/logomark.png";
 
 const Sidebar = ({ children }) => {
   const dispatch = useDispatch();
@@ -27,32 +29,38 @@ const Sidebar = ({ children }) => {
 
   return (
     <div className="layout ">
-      <div className="sidebar hidden sm:block">
-        {menu.map((item, index) => {
-          return <Sidebaritem key={index} item={item} />;
-        })}
+      <div className="sidebar hidden md:block">
+        <div className="sidebar-logo">
+          <img src={Logo} alt="Logo" className="logo" />
+        </div>
+        <div className="sidebar-items">
+          {menu.map((item, index) => {
+            return <Sidebaritem key={index} item={item} />;
+          })}
+        </div>
+
+        <div className="hidden md:block profile">
+          <div onClick={toggleDropdown} className="profile-content">
+            <img
+              src={Logomark} // Replace with the actual path to the photo
+              alt="Profile"
+              className="photo"
+            />
+            <span className="name">{name}</span>
+          </div>
+
+          {isDropdownVisible && (
+            <div>
+              {/* Dropdown content */}
+              <button onClick={logout}>Logout</button>
+              {/* Add other dropdown items as needed */}
+            </div>
+          )}
+        </div>
       </div>
 
       <main>{children}</main>
       <MobileBottombar />
-      <div className="hidden sm:block">
-        <div onClick={toggleDropdown}>
-          <img
-            src="path/to/profile-photo.jpg" // Replace with the actual path to the photo
-            alt="Profile"
-            className="photo"
-          />
-          <span className="name">{name}</span>
-        </div>
-
-        {isDropdownVisible && (
-          <div>
-            {/* Dropdown content */}
-            <button onClick={logout}>Logout</button>
-            {/* Add other dropdown items as needed */}
-          </div>
-        )}
-      </div>
     </div>
   );
 };

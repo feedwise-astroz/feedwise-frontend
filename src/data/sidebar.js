@@ -1,28 +1,30 @@
-import { RiNotificationLine, RiUserLine } from 'react-icons/ri';
-import { MdOutlineInventory } from "react-icons/md";
-import { MdInsertChartOutlined } from "react-icons/md";
 
+
+import { ReactComponent as DashboardIcon } from '../assets/dashboard-icons/Assessment.svg';
+import { ReactComponent as NotificationsIcon } from '../assets/dashboard-icons/Notifications.svg';
+import { ReactComponent as InventoryIcon } from '../assets/dashboard-icons/Inventory.svg';
+import { ReactComponent as AccountIcon } from '../assets/dashboard-icons/Settings.svg';
 
 const menu = [
   {
     title: "Dashboard",
     path: "/dashboard",
-    icon: MdInsertChartOutlined,
+    icon: <DashboardIcon />,
   },
   {
     title: "Notifications",
     path: "/notification",
-    icon: RiNotificationLine,
+    icon: <NotificationsIcon />,
   }, 
   {
     title: "Inventory List",
     path: "/inventory",
-    icon: MdOutlineInventory,
+    icon: <InventoryIcon />,
   },
   {
     title: "Account",
     path: "/profile",
-    icon: RiUserLine,
+    icon: <AccountIcon />,
   },
 ];
 
