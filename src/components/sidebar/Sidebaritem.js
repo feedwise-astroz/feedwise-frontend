@@ -1,10 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const activeLink = ({ isActive }) => (isActive ? "active" : "link");
 
 const Sidebaritem = ({item}) => {
-  const Icon = item.icon;
   return (
     <div className="sidebar-item">
       <div className="sidebar-item-content">
