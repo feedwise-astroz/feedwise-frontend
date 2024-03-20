@@ -5,7 +5,7 @@ const activeLink = ({ isActive }) => (isActive ? "active" : "link");
 
 const MobileBottombarItem = ({item}) => {
   return (
-    <div>
+    <div className='mobile-view'>
         <NavLink to={item.path} className={activeLink}>{item.icon}</NavLink>
     </div>
   )

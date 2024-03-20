@@ -7,7 +7,9 @@ const Layout = ({children}) => {
   return (
    
     <>
+       <div className="block md:hidden">
         <Header />
+      </div>
         <div className="main-content">
                {children}
         </div>
