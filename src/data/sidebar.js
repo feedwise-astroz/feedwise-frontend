@@ -1,6 +1,4 @@
-import { RiUserLine } from 'react-icons/ri';
-import { MdOutlineInventory, MdInsertChartOutlined, MdOutlineSettings } from "react-icons/md";
-import { IoMdNotifications } from "react-icons/io";
+
 
 import { ReactComponent as DashboardIcon } from '../assets/dashboard-icons/Assessment.svg';
 import { ReactComponent as NotificationsIcon } from '../assets/dashboard-icons/Notifications.svg';
