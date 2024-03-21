@@ -1,0 +1,54 @@
+
+
+.form-heading {
+    font-size: 1.5rem; /* Equivalent to text-2xl */
+    font-weight: bold;
+    margin-bottom: 0.25rem; /* Equivalent to mb-1 */
+    text-align: center;
+  }
+  
+  .form-subheading {
+    font-size: 0.875rem; /* Equivalent to text-sm */
+    color: #4b5563; /* Equivalent to text-black-600 */
+    margin-bottom: 2rem; /* Equivalent to mb-8 */
+    text-align: center;
+  }
+
+  .forgot-heading{
+    font-size: 1.5rem; /* Equivalent to text-2xl */
+    font-weight: bold;
+    margin-bottom: 0.25rem; /* Equivalent to mb-1 */
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .form-heading {
+        font-size: 2rem;
+        margin-bottom: 0;
+        line-height: 1;
+        text-align: left;
+    }
+
+    .form-subheading {
+        font-size: 1rem;
+        text-align: left;
+        margin-bottom: 1.5rem; 
+      }
+
+
+
+
+    // // External CSS (e.g., Logo.css)
+    // .logo-container {
+    //     position: fixed;
+    //     top: 3rem; /* Adjust as needed */
+    //     right: 2rem; /* Adjust as needed */
+    //     width: 15vw;
+    //     }
+  
+    // .logo {
+    //     width: 80%; /* Adjust width as needed */
+    //     height: 30vh; /* Maintain aspect ratio */
+    //     }
+}
+  
