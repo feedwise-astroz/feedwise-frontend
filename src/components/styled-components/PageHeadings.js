@@ -1,4 +1,5 @@
 import React from 'react';
+import './Form.scss'
 
 const StyledHeading = ({ children }) => {
   return <h2 className="text-2xl font-bold mb-2 text-center">{children}</h2>;

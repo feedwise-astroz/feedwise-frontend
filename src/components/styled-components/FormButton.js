@@ -1,10 +1,13 @@
 import React from 'react';
+import './Form.scss'
 
 const FormButton = ({ type, children }) => {
   return (
-    <button type={type} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
+    <div className='button-primary-color mt-4 rounded-lg'>
+    <button type={type} className="text-white font-bold py-4 px-4 rounded-lg w-full ">
       {children}
     </button>
+    </div>
   );
 };
 

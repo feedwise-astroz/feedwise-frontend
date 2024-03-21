@@ -1,10 +1,11 @@
 import React from 'react';
+import './Form.scss'
 
 const FormInput = ({ className, ...rest }) => {
   return (
     <input
       {...rest}
-      className={`border rounded px-3 py-2 mb-4 w-full ${className}`}
+      className={`border-2 border-black rounded-lg px-3 py-4 mb-10 mt-1 w-full ${className}`}
     />
   );
 };
