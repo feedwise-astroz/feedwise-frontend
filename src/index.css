@@ -25,9 +25,7 @@ body {
 
     font-family: 'Roboto', sans-serif;
     background-color: #EDEEF3;
-<<<<<<< HEAD
-}
-=======
+
     margin: 0;
     padding: 0;
     width: 100%;
@@ -46,4 +44,3 @@ body {
 .text-primary-color{
     color: #00663C;
 }
->>>>>>> dev

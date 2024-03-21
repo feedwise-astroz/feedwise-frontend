@@ -37,13 +37,14 @@ const Forgot = () => {
           Enter Your Registered Email Id
         </h2>
 
-        <Card>
+        <Card >
+          <div className="md:px-6 md:py-6">
           <div>
             <p className="md:mb-12 mb-8 md:mt-8 mt-6 text-secondary-color">
               A link to Reset your password will be sent your Email
             </p>
           </div>
-          <form onSubmit={forgot}>
+          <form onSubmit={forgot} >
             <div className="text-left">
               {" "}
               {/* Add text-left class here */}
@@ -67,6 +68,7 @@ const Forgot = () => {
               </span>
             </div>
           </form>
+          </div>
         </Card>
       </div>
     </div>
