@@ -1,0 +1,69 @@
+
+.createdAt{
+    color: #808080;
+}
+.btn-details{
+    color:#00663C
+}
+
+.red-border {
+    border: 2px solid #770918;
+  }
+  
+  .green-border {
+    border: 2px solid green;
+  }
+  .head{
+    color: #263238;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .msg{
+    margin-left: 28px;
+  }
+  
+  
+/* ******* */
+.card-with-padding {
+    margin: 79px 124px 76px 133px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #DEE1F0;
+    padding: 18px;
+}
+
+.notification-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 41px;
+}
+
+.action-button-container {
+    margin-left: auto;
+}
+.btn-details{
+    color:#00663C
+}
+
+/* Mobile View*/
+@media (max-width: 767px) {
+    .card-with-padding {
+        margin: 20px 10px; 
+        padding: 20px; 
+    }
+    
+    .notification-actions {
+        flex-direction: column; 
+        margin-top: 20px; 
+    }
+    
+    .action-button-container {
+        margin-left: auto;
+    }
+}
+
+ 

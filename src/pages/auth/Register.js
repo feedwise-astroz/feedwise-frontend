@@ -75,7 +75,7 @@ const Register = () => {
           <h2 className="form-heading mb-8">Create an Account</h2>
           {error && <div className="error-message">{error}</div>}
           <Card>
-            <form onSubmit={register} className="mb-4">
+            <form onSubmit={register} className="mb-4 md:px-8 md:py-6">
               <FormLabel>Full name</FormLabel>
               <FormInput
                 type="text"

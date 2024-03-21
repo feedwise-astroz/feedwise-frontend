@@ -6,7 +6,7 @@ import { createNewFeed } from '../../redux/features/inventory/inventorySlice';
 import FeedForm from '../../components/feedform/FeedForm';
 //import { allcattles } from '../../redux/features/cattle/cattleSlice';
 import PopUp from '../../components/popUp/PopUp';
-
+import Heading from '../../components/heading/Heading';
 
 const initialState = {
   'feedName': '',
@@ -81,6 +81,8 @@ const AddFeed = () => {
 
   return (
     <>
+    <Heading heading="heading custom-class">Inventory</Heading>
+    
     <FeedForm feedName={feedDetails.feedName}
       animalTypes={feedDetails.animalTypes}
       feedQuantity={feedDetails.feedQuantity}
@@ -94,6 +96,7 @@ const AddFeed = () => {
       handleDateChange={handleDateChange}
 
        />
+      
 
        {
         showPopUp && ( // Render the popup conditionally

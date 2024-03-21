@@ -50,9 +50,9 @@ const FeedList = ({ feeds, isLoading }) => {
                 </td>
                 <td className="border-b border-gray-200 px-4 py-2">{feed.feedName}</td>
                 <td className="hidden lg:table-cell border-b border-gray-200 px-4 py-2">{feed.feedQuantity}</td>
-                {/* Hidden on mobile */}
+                
                 <td className="hidden lg:table-cell border-b border-gray-200 px-4 py-2">{formatDate(feed.startDate)}</td>
-                {/* Hidden on mobile */}
+                
                 <td className={`border-b border-gray-200 px-4 py-2 ${feed.inStock === 'High' ? 'text-green-500' : feed.inStock === 'Low' ? 'text-red-500' : ''}`}>{feed.inStock}</td>
               </tr>
             ))}

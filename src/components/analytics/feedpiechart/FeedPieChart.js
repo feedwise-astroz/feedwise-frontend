@@ -40,7 +40,9 @@ const FeedPieChart = () => {
 
 
   return (
-    <div style={{ height: '400px', position: 'relative' }}>
+    <div style={{ height: '600px', width: '300px', position: 'relative' }}>
+      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Current Feed left</h2>
+      
       <ResponsivePie
         data={data}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}

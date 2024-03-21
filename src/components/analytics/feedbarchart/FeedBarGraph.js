@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ResponsiveBar} from '@nivo/bar';
+import { ResponsiveBar } from '@nivo/bar';
 import { MdFilterListAlt } from 'react-icons/md';
 import inventoryService from '../../../redux/features/inventory/inventoryService';
 
@@ -16,7 +16,7 @@ const FeedBarGraph = () => {
     async function getAnalytics() {
       try {
         const Activedata = await inventoryService.getFeeds();
-    
+
         setActivedata(Activedata.data);
 
         // Extract unique feedName values
@@ -37,7 +37,7 @@ const FeedBarGraph = () => {
         month: formatCreatedAtDate(item.purchaseDate),
         feedUsed: item.feedQuantity,
       }));
-  
+
       // Remove the array wrapping here
       setChartData(formattedFilteredData);
       console.log('Filtered Data:', formattedFilteredData);
@@ -47,11 +47,11 @@ const FeedBarGraph = () => {
         month: formatCreatedAtDate(item.purchaseDate),
         feedUsed: item.feedQuantity,
       }));
-  
+
       setChartData(formattedData);
     }
   }, [selectedFeedName, activedata, filteredData]);
-  
+
 
   const handleFilterButtonClick = () => {
     // Toggle the visibility of the dropdown
@@ -91,13 +91,13 @@ const FeedBarGraph = () => {
         </div>
       )}
 
-      <div style={{ height: '400px' }}>
+      <div style={{ width: '420px', height: '203px' }}>
         <ResponsiveBar
           data={chartData}
           keys={['feedUsed']}
           indexBy="month"
-          margin={{ top: 50, right: 60, bottom: 50, left: 60 }}
-          padding={0.3}
+          margin={{ top: 30, right: 30, bottom: 50, left: 50 }} // Adjusted margin
+          padding={0.2} // Adjusted padding
           colors={{ scheme: 'nivo' }}
           axisTop={null}
           axisRight={null}
@@ -110,9 +110,7 @@ const FeedBarGraph = () => {
             legendOffset: 32,
           }}
           axisLeft={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
+            tickValues: [0,1200,2200], // Specify the tick values for y-axis
             legend: 'Feed Used',
             legendPosition: 'middle',
             legendOffset: -40,
@@ -136,7 +134,17 @@ const FeedBarGraph = () => {
               symbolSize: 20,
             },
           ]}
+          theme={{
+            axis: {
+              ticks: {
+                text: {
+                  fontSize: 10 // Adjusted font size for axis ticks
+                }
+              }
+            }
+          }}
         />
+
       </div>
     </div>
   );
