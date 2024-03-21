@@ -1,0 +1,42 @@
+.card-container {
+    display: flex;
+    justify-content: space-between;
+     
+  }
+  
+  .left-column {
+    flex: 1;
+  }
+  
+  .right-column {
+    flex: 1;
+    margin-left: 70px;
+  }
+
+  .card-container{
+    margin-top: 84px;
+  }
+  .card-container input[type="text"],
+.card-container input[type="number"],
+.card-container input[type="text"]:focus,
+.card-container input[type="number"]:focus {
+  border: 1px solid #000; 
+  border-radius: 10px;
+  background: #EDEEF3;
+  width: 365px;
+  height: 56px;
+  margin-bottom: 47px;
+}
+
+.card-container select{
+    width: 300px;
+    height: 15px;
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 50px;
+  }
+  

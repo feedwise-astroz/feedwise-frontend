@@ -16,10 +16,10 @@ const FeedLineGraph = () => {
     async function getAnalytics() {
       try {
         const Activedata = await inventoryService.getFeeds();
-    
+
         setActivedata(Activedata.data);
 
-       
+
         const uniqueNames = [...new Set(Activedata.data.map(item => item.feedName))];
         setUniqueFeedNames(uniqueNames);
       } catch (error) {
@@ -37,7 +37,7 @@ const FeedLineGraph = () => {
         x: formatCreatedAtDate(item.purchaseDate),
         y: item.purchasePrice,
       }));
-  
+
       const updatedData = [
         {
           id: 'TotalCost',
@@ -52,7 +52,7 @@ const FeedLineGraph = () => {
         x: formatCreatedAtDate(item.purchaseDate),
         y: item.purchasePrice,
       }));
-  
+
       const updatedData = [
         {
           id: 'TotalCost',
@@ -60,7 +60,7 @@ const FeedLineGraph = () => {
         },
       ];
       setChartData(updatedData);
-  
+
     }
   }, [selectedFeedName, activedata, filteredData]);
 
@@ -84,13 +84,13 @@ const FeedLineGraph = () => {
   };
 
   return (
-    <div style={{ height: '450px', position: 'relative' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Feed Used per Month</h2>
+    <div style={{ height: '203px', width: '420px', position: 'relative' }}>
+      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Purchases History per month</h2>
       <MdFilterListAlt onClick={handleFilterButtonClick} />
 
       {showDropdown && (
         <div style={{ position: 'absolute', top: '40px', left: '70px', zIndex: 1 }}>
-         
+
           <select onChange={(e) => handleDropdownSelect(e.target.value)}>
             <option value="">Select Feed Name</option>
             {uniqueFeedNames.map((feedName) => (
@@ -128,6 +128,7 @@ const FeedLineGraph = () => {
           legend: 'Total Cost',
           legendOffset: -40,
           legendPosition: 'middle',
+          tickValues: [10, 50, 100], 
         }}
         colors={{ scheme: 'nivo' }}
         pointSize={10}
@@ -163,6 +164,7 @@ const FeedLineGraph = () => {
           },
         ]}
       />
+
     </div>
   );
 };
