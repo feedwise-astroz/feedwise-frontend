@@ -9,6 +9,9 @@ import Button2 from '../button2/Button2';
 import Button1 from '../button1/Button1';
 
 
+
+
+
 const FeedForm = ({
   feedName, animalTypes, feedQuantity, startDate, vendorName, purchaseDate, purchasePrice, txnID, handleChange1, handleDateChange, handleSubmit
 }) => {
@@ -36,6 +39,28 @@ const FeedForm = ({
     getCattleData();
   }, []);
 
+  // Define CSS styles with media queries for responsiveness
+  const customStyles = {
+    control: (provided) => ({
+      ...provided,
+      borderColor: 'black',
+      maxWidth: '365px', // Set maximum width to 365px
+      width: '90%', // Set width to 90%
+      height: '3vw',
+      borderRadius: '8px',
+      backgroundColor: '#EDEEF3',
+      marginBottom: '1vw',
+      '@media (max-width: 767px)': {
+        width: 'calc(100% - 21.534px)', /* 21.534px is the total padding (10.767px * 2) */
+        height: '55px',
+        alignItems: 'center',
+        gap: '10.767px',
+        flexShrink: 0,
+      },
+    }),
+    indicatorSeparator: () => ({ display: 'none' }), // Remove vertical line near dropdown arrow
+  };
+
 
 
 
@@ -45,8 +70,8 @@ const FeedForm = ({
     <form onSubmit={handleSubmit}>
 
       <div className='buttons'>
-      <Button2 className="btn2"><Link to="/inventory" className='backbtn'>Back</Link></Button2>
-      <Button1 type="submit" className='submitbtn'>Submit Form</Button1>
+        <Button2 className="btn2"><Link to="/inventory" className='backbtn'>Back</Link></Button2>
+        <Button1 type="submit" className='submitbtn'>Submit Form</Button1>
       </div>
 
       <Card cardClass='card addfeed'>
@@ -66,6 +91,7 @@ const FeedForm = ({
             <label htmlFor="animalTypes">Animal Types:</label>
             <br></br>
             <Select
+              className="custom-select"
               isMulti
               name="animalTypes"
               options={animals.map(type => ({ value: type, label: type }))}
@@ -73,6 +99,7 @@ const FeedForm = ({
                 const selectedAnimalTypes = selectedOptions.map(option => option.value);
                 handleChange1({ target: { name: 'animalTypes', value: selectedAnimalTypes } });
               }}
+              styles={customStyles} // Apply custom styles
             />
             <br></br>
             <label htmlFor="feedQuantity">Feed Quantity:</label>
@@ -95,6 +122,8 @@ const FeedForm = ({
               onChange={(date) => handleDateChange(date, 'startDate')}
               dateFormat="MM/dd/yyyy"
               placeholderText="mm/dd/yyyy"
+              wrapperClassName="date-picker-wrapper"
+              calendarClassName="date-picker-calendar"
             />
           </div>
           <br></br>
@@ -130,6 +159,8 @@ const FeedForm = ({
               onChange={(date) => handleDateChange(date, 'purchaseDate')}
               dateFormat="MM/dd/yyyy"
               placeholderText="mm/dd/yyyy"
+              wrapperClassName="date-picker-wrapper"
+              calendarClassName="date-picker-calendar"
             />
             <br></br>
             <label htmlFor="txnID">Transaction ID:</label>
