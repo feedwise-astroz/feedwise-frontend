@@ -6,7 +6,12 @@ const activeLink = ({ isActive }) => (isActive ? "active" : "link");
 const MobileBottombarItem = ({item}) => {
   return (
     <div className='mobile-view'>
-        <NavLink to={item.path} className={activeLink}>{item.icon}</NavLink>
+      <NavLink to={item.path} className={activeLink}>
+        <div className="flex flex-col items-center">
+          {item.icon}
+          <span className="mt-1">{item.title}</span> {/* Text under the icon */}
+        </div>
+      </NavLink>
     </div>
   )
 }

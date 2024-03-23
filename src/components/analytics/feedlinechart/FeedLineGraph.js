@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { ResponsiveLine } from '@nivo/line';
-import { MdFilterListAlt } from 'react-icons/md';
-import inventoryService from '../../../redux/features/inventory/inventoryService';
-
+import React, { useEffect, useState } from "react";
+import { ResponsiveLine } from "@nivo/line";
+import { MdFilterListAlt } from "react-icons/md";
+import inventoryService from "../../../redux/features/inventory/inventoryService";
+import './FeedLineGraph.scss'
 
 const FeedLineGraph = () => {
   const [activedata, setActivedata] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [uniqueFeedNames, setUniqueFeedNames] = useState([]);
-  const [selectedFeedName, setSelectedFeedName] = useState('');
+  const [selectedFeedName, setSelectedFeedName] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [chartData, setChartData] = useState([]);
+  const customColors = ["#0B3954"];
 
   useEffect(() => {
     async function getAnalytics() {
@@ -19,11 +20,12 @@ const FeedLineGraph = () => {
 
         setActivedata(Activedata.data);
 
-
-        const uniqueNames = [...new Set(Activedata.data.map(item => item.feedName))];
+        const uniqueNames = [
+          ...new Set(Activedata.data.map((item) => item.feedName)),
+        ];
         setUniqueFeedNames(uniqueNames);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     }
 
@@ -40,12 +42,12 @@ const FeedLineGraph = () => {
 
       const updatedData = [
         {
-          id: 'TotalCost',
+          id: "TotalCost",
           data: formattedFilteredData,
         },
       ];
       setChartData(updatedData);
-      console.log('Filtered Data:', updatedData);
+      console.log("Filtered Data:", updatedData);
     } else {
       // If no feedName is selected, show all data
       const formattedData = activedata.map((item) => ({
@@ -55,12 +57,11 @@ const FeedLineGraph = () => {
 
       const updatedData = [
         {
-          id: 'TotalCost',
+          id: "TotalCost",
           data: formattedData,
         },
       ];
       setChartData(updatedData);
-
     }
   }, [selectedFeedName, activedata, filteredData]);
 
@@ -74,97 +75,88 @@ const FeedLineGraph = () => {
     setSelectedFeedName(selectedValue);
 
     // Filter data based on the selected feedName
-    const filtered = activedata.filter((item) => item.feedName === selectedValue);
+    const filtered = activedata.filter(
+      (item) => item.feedName === selectedValue
+    );
     setFilteredData(filtered);
   };
 
   const formatCreatedAtDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleString('default', { month: 'short' });
+    return date.toLocaleString("default", { month: "short" });
   };
 
   return (
-    <div style={{ height: '203px', width: '420px', position: 'relative' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Purchases History per month</h2>
-      <MdFilterListAlt onClick={handleFilterButtonClick} />
-
-      {showDropdown && (
-        <div style={{ position: 'absolute', top: '40px', left: '70px', zIndex: 1 }}>
-
-          <select onChange={(e) => handleDropdownSelect(e.target.value)}>
-            <option value="">Select Feed Name</option>
-            {uniqueFeedNames.map((feedName) => (
-              <option key={feedName} value={feedName}>
-                {feedName}
-              </option>
-            ))}
-          </select>
+    <div className="md:h-64 md:w-120 md:mb-8">
+      <div className="flex justify-between">
+      <h2 style={{ textAlign: 'center', marginBottom: '20px', fontWeight: 'bold', fontSize: '22px' }}>Purchases History per month</h2>
+        <div className="flex items-center justify-end mb-4">
+          {showDropdown && (
+            <div style={{ marginRight: "10px" }}>
+              <select onChange={(e) => handleDropdownSelect(e.target.value)}>
+                <option value="">Select Feed Name</option>
+                {uniqueFeedNames.map((feedName) => (
+                  <option key={feedName} value={feedName}>
+                    {feedName}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+          <MdFilterListAlt onClick={handleFilterButtonClick} />
         </div>
-      )}
-
+      </div>
 
       <ResponsiveLine
         data={chartData}
         margin={{ top: 50, right: 60, bottom: 50, left: 60 }}
-        xScale={{ type: 'point' }}
-        yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}
+        xScale={{ type: "point" }}
+        yScale={{
+          type: "linear",
+          min: 0,
+          max: "auto",
+          stacked: true,
+          reverse: false,
+        }}
         curve="monotoneX"
         axisTop={null}
         axisRight={null}
         axisBottom={{
-          orient: 'bottom',
+          orient: "bottom",
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: 'Month',
           legendOffset: 36,
-          legendPosition: 'middle',
+          legendPosition: "middle",
         }}
         axisLeft={{
-          orient: 'left',
+          orient: "left",
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: 'Total Cost',
           legendOffset: -40,
-          legendPosition: 'middle',
-          tickValues: [10, 50, 100], 
-        }}
-        colors={{ scheme: 'nivo' }}
-        pointSize={10}
-        pointColor={{ from: 'color', modifiers: [] }}
-        pointBorderWidth={2}
-        pointBorderColor={{ theme: 'background' }}
-        pointLabelYOffset={-12}
-        useMesh={true}
-        legends={[
-          {
-            anchor: 'bottom-right',
-            direction: 'column',
-            justify: false,
-            translateX: 100,
-            translateY: 0,
-            itemsSpacing: 0,
-            itemDirection: 'left-to-right',
-            itemWidth: 80,
-            itemHeight: 20,
-            itemOpacity: 0.75,
-            symbolSize: 12,
-            symbolShape: 'circle',
-            symbolBorderColor: 'rgba(0, 0, 0, .5)',
-            effects: [
-              {
-                on: 'hover',
-                style: {
-                  itemBackground: 'rgba(0, 0, 0, .03)',
-                  itemOpacity: 1,
-                },
-              },
-            ],
-          },
-        ]}
-      />
+          legendPosition: "middle",
+          tickValues: [1000, 2000, 4000, 8000],
 
+          // gridValues: [1000, 2000, 4000],
+        }}
+        colors={customColors}
+        enablePoints={false}
+        enableGridX={false}
+        enableGridY={true} // Enable gridlines on Y-axis
+        gridYValues={[1000, 2000, 4000, 8000]}
+        // enableGridY={false}
+        theme={{
+          grid: {
+            line: {
+              stroke: "green", // Custom color for gridlines
+              strokeWidth: 1, // Adjust thickness if needed
+              strokeDasharray: "4 4", // Adjust dash pattern if needed
+            },
+          },
+        }}
+        useMesh={true}
+      />
     </div>
   );
 };

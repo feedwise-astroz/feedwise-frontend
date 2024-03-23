@@ -11,6 +11,7 @@ const FeedBarGraph = () => {
   const [selectedFeedName, setSelectedFeedName] = useState('');
   const [filteredData, setFilteredData] = useState([]);
   const [chartData, setChartData] = useState([]);
+  const customColors = ["#177E89"];
 
   useEffect(() => {
     async function getAnalytics() {
@@ -48,6 +49,8 @@ const FeedBarGraph = () => {
         feedUsed: item.feedQuantity,
       }));
 
+      console.log("formated data!!!")
+      console.log(formattedData)
       setChartData(formattedData);
     }
   }, [selectedFeedName, activedata, filteredData]);
@@ -73,12 +76,12 @@ const FeedBarGraph = () => {
   };
 
   return (
-    <div style={{ height: '450px', position: 'relative' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Feed Used per Month</h2>
-      <MdFilterListAlt onClick={handleFilterButtonClick} />
-
-      {showDropdown && (
-        <div style={{ position: 'absolute', top: '40px', left: '70px', zIndex: 1 }}>
+    <div className="md:h-64 md:w-120 md:mb-8">
+            <div className="flex justify-between">
+            <h2 style={{ textAlign: 'center', marginBottom: '20px', fontWeight: 'bold', fontSize: '22px' }}>Feed Used per Month</h2>
+            <div className="flex items-center justify-end mb-4">
+            {showDropdown && (
+                 <div style={{ marginRight: "10px" }}>
           {/* Adjusted the left property to add space */}
           <select onChange={(e) => handleDropdownSelect(e.target.value)}>
             <option value="">Select Feed Name</option>
@@ -90,50 +93,37 @@ const FeedBarGraph = () => {
           </select>
         </div>
       )}
+      <MdFilterListAlt onClick={handleFilterButtonClick} />
+      </div>
+      </div>
 
-      <div style={{ width: '420px', height: '203px' }}>
+
+
         <ResponsiveBar
           data={chartData}
           keys={['feedUsed']}
           indexBy="month"
           margin={{ top: 30, right: 30, bottom: 50, left: 50 }} // Adjusted margin
-          padding={0.2} // Adjusted padding
-          colors={{ scheme: 'nivo' }}
+          padding='0.4'
+          colors={customColors}
+          borderRadius='6px'
+          enableLabel={true}
+          totalFormat={(value) => `${value} `} 
+          enableTotals={true}
+          totalsOffset='9px'
+          enableGridY={false}
+          enableGridX={false}
           axisTop={null}
           axisRight={null}
+          axisLeft={null}
           axisBottom={{
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'Month',
-            legendPosition: 'middle',
-            legendOffset: 32,
-          }}
-          axisLeft={{
-            tickValues: [0,1200,2200], // Specify the tick values for y-axis
-            legend: 'Feed Used',
-            legendPosition: 'middle',
-            legendOffset: -40,
           }}
           labelSkipWidth={12}
           labelSkipHeight={12}
           labelTextColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
-          legends={[
-            {
-              dataFrom: 'keys',
-              anchor: 'bottom-right',
-              direction: 'column',
-              justify: false,
-              translateX: 120,
-              translateY: 0,
-              itemsSpacing: 2,
-              itemWidth: 100,
-              itemHeight: 20,
-              itemDirection: 'left-to-right',
-              itemOpacity: 0.85,
-              symbolSize: 20,
-            },
-          ]}
           theme={{
             axis: {
               ticks: {
@@ -145,7 +135,6 @@ const FeedBarGraph = () => {
           }}
         />
 
-      </div>
     </div>
   );
 };
