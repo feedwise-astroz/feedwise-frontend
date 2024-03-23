@@ -106,26 +106,26 @@ const FeedDetail = () => {
             {feedDetail && (
               <>
 
-                <p> {feedDetail.status === "Newly Active" || feedDetail.status === "Active" ? (
+                <p> {feedDetail.status === "Newly Active" || feedDetail.status === "active" ? (
                   <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-                ) : (
+                  ) : (
                   <span className="inline-block w-4 h-4 rounded-full bg-red-500 mr-2"></span>
                 )}
                   {feedDetail.status.charAt(0).toUpperCase() + feedDetail.status.slice(1)}</p>
-                <div className='feed-split'> 
-                <div className='feed-right'>
-                  <p>Feed Name: {feedDetail.feedName}</p>
-                  <p>Cattle to be feed: {feedDetail.animalTypes.join(', ')}</p>
-                  <p>Quantity of feed: {feedDetail.feedQuantity}</p>
-                  <p>Start Date: {formatDate(feedDetail.startDate)}</p>
+                <div className='feed-split'>
+                  <div className='feed-right'>
+                    <p>Feed Name: {feedDetail.feedName}</p>
+                    <p>Cattle to be feed: {feedDetail.animalTypes.join(', ')}</p>
+                    <p>Quantity of feed: {feedDetail.feedQuantity}</p>
+                    <p>Start Date: {formatDate(feedDetail.startDate)}</p>
+                  </div>
+                  <div className='feed-left'>
+                    <p>VendorName: {feedDetail.vendorName}</p>
+                    <p>Purchase price: {feedDetail.purchasePrice}</p>
+                    <p>Purchase Date: {formatDate(feedDetail.purchaseDate)}</p>
+                    <p>Transaction Id: {feedDetail.txnID}</p>
+                  </div>
                 </div>
-                <div className='feed-left'>
-                  <p>VendorName: {feedDetail.vendorName}</p>
-                  <p>Purchase price: {feedDetail.purchasePrice}</p>
-                  <p>Purchase Date: {formatDate(feedDetail.purchaseDate)}</p>
-                  <p>Transaction Id: {feedDetail.txnID}</p>
-                </div>
-                </div> 
 
 
               </>
