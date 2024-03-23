@@ -7,6 +7,9 @@ import FeedForm from '../../components/feedform/FeedForm';
 //import { allcattles } from '../../redux/features/cattle/cattleSlice';
 import PopUp from '../../components/popUp/PopUp';
 import Heading from '../../components/heading/Heading';
+import './AddFeed.scss'
+import Button1 from '../../components/button1/Button1';
+import Button2 from '../../components/button2/Button2';
 
 const initialState = {
   'feedName': '',
@@ -99,12 +102,20 @@ const AddFeed = () => {
       
 
        {
-        showPopUp && ( // Render the popup conditionally
+       
+        showPopUp && ( 
+        
         <PopUp
           open={showPopUp}>
+            <div className="save-feed" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{ margin: '0 auto', width: 'fit-content' }}>
             <p>Are you Sure you want to Save</p>
-          <button onClick={() => setShowPopUp(false)}>Cancel</button>
-          <button onClick={handleSave}>Save</button>
+            <div style={{ display: 'flex', justifyContent: 'space-between' ,marginTop: "10px"}}>
+          <Button2 onClick={() => setShowPopUp(false)} className="btn2">Cancel</Button2>
+          <Button1 onClick={handleSave} className="submitbtn">Save</Button1>
+          </div>
+          </div>
+          </div>
         </PopUp>
       )}
     </>

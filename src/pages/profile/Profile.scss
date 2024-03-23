@@ -1,0 +1,45 @@
+.user h2 {
+    color: var(--Natural-Black, #000);
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.profile-Details {
+    margin: 0px 300px; /* Adjusted margin for responsiveness */
+}
+
+.profile-cattle {
+    margin-top: 20px; /* Adjusted margin for responsiveness */
+}
+
+table,
+th,
+td {
+    padding: 10px 20px; /* Adjusted padding for responsiveness */
+
+    border: 1px solid #ddd;
+}
+
+.editCattle {
+    margin: 0 auto;
+    overflow-x: auto; /* Ensuring table overflow is scrollable */
+}
+
+.edit{
+    margin: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    .profile-Details {
+        margin: 0px; /* Removing margin for smaller screens */
+    }
+
+    table,
+    th,
+    td {
+        padding: 10px; /* Adjusted padding for smaller screens */
+    }
+}
