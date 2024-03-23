@@ -1,0 +1,7 @@
+.inventory-table td{
+    border-top: none; /* Remove top border */
+    border-right: none; /* Remove right border */
+    border-left: none; /* Remove left border */
+    border-bottom-width: 1px; /* Set bottom border */
+    border-bottom: 1px solid black; /* Optional: set border color */
+}

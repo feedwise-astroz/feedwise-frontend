@@ -1,0 +1,50 @@
+.button3-container{
+    display: flex;
+    justify-content: center;
+        margin-right: 2rem
+}
+
+
+.submitbtn3, .submitbtn3-inventory {
+    border-radius: 10px;
+    padding: 16px 32px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  .submitbtn3{ 
+    background: #ffffff;
+    color: #00663c; 
+    border: 2px solid #00663c; 
+  }
+
+  .submitbtn3-inventory {
+    background: #00663c;
+    color:  #ffffff;
+    border: 2px solid #00663c; 
+  }
+  
+  .submitbtn3:hover,
+  .submitbtn3:focus {
+    background: #00663c;
+    color: #ffffff;
+    border-color: #00663c;
+  }
+  
+
+
+@media (min-width: 768px) {
+    .button3-container{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 2rem
+    }
+    
+      .submitbtn3:hover,
+      .submitbtn3:focus {
+        background: #00663c;
+        color: #ffffff;
+        border-color: #00663c;
+      }
+      
+    }

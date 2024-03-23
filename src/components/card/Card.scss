@@ -7,6 +7,12 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   /* Add base styles */
 
+
+
+}
+
+.header-card .card {
+  padding: 0; /* Change the padding value to override */
 }
 
 @media (min-width: 768px) {

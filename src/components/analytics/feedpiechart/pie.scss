@@ -1,0 +1,22 @@
+.pie-container{
+  font-size: 32px;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+
+@media (min-width: 768px) {
+
+.pie-container{
+    width: 34rem; /* 80% of the viewport width */
+    height: 32rem; /* 80% of the viewport height */
+    font-size: 24px;
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
+
+  .pie-container h2{
+    margin-bottom: 1rem;
+  }
+
+}
