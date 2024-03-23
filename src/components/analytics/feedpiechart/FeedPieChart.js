@@ -1,14 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { ResponsivePie } from '@nivo/pie';
-import inventoryService from '../../../redux/features/inventory/inventoryService';
+import React, { useEffect, useMemo, useState } from "react";
+import { ResponsivePie } from "@nivo/pie";
+import inventoryService from "../../../redux/features/inventory/inventoryService";
+import "./pie.scss";
 
-
-
-const FeedPieChart = () => { 
-
+const FeedPieChart = ({setActiveData, setCustomColors}) => {
   const [activefeed, setActivefeed] = useState([]);
   const [data, setData] = useState([]);
-
+  // Memoize customColors array
+  const customColors = useMemo(() => [
+    "#FFC857",
+    "#177E89",
+    "#3D9970",
+    "#6495ED",
+    "#008080",
+    "#40E0D0",
+    "#228B22",
+    "#00FF7F",
+    "#B0E0E6",
+    "#FFA500",
+    "#FA8072",
+    "#FFA07A",
+  ], []);
   useEffect(() => {
     async function getAnalytics() {
       try {
@@ -20,38 +32,35 @@ const FeedPieChart = () => {
           0
         );
 
-        const newData = activefeed.map((item) => ({
+        const newData = activefeed.map((item, index) => ({
           id: item.feedName,
           label: item.feedName,
           value: Math.round((item.feedQuantity / totalFeedQuantity) * 100),
+          color: customColors[index % customColors.length],
         }));
 
         setData(newData);
+        setActiveData(Activedata.data); 
+        setCustomColors(customColors); 
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     }
 
     getAnalytics();
-  }, [activefeed]);
-
-
-
-
+  },  [activefeed, setActiveData, setCustomColors, customColors]);
 
   return (
-    <div style={{ height: '600px', width: '300px', position: 'relative' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Current Feed left</h2>
+    <div className="pie-container">
+      <h2 className="text-left mb-5 font-bold">Current Feed left</h2>
       
-      <ResponsivePie
+
+      <ResponsivePie className="piepie"
         data={data}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
         innerRadius={0.5}
-        padAngle={0.7}
-        cornerRadius={3}
-        colors={{ scheme: 'category10' }}
-        borderWidth={1}
-        borderColor={{ from: 'color', modifiers: [['darker', 0.9]] }}
+        // cornerRadius={0}
+        colors={customColors}
         enableRadialLabels={false}
         enableSliceLabels={true}
         sliceLabel={({ slice }) => {
@@ -60,7 +69,7 @@ const FeedPieChart = () => {
             <g>
               <circle fill="lightblue" r="15" />
               <text
-                fontSize="12px"
+                fontSize="122px"
                 fill="black"
                 textAnchor="middle"
                 dominantBaseline="central"
