@@ -1,4 +1,4 @@
-.feedLineGraph-container{
+.feedBarGraph-container{
     height: 300px;
     width: 280px;
     margin: 0 2rem 4rem 2rem;
@@ -7,9 +7,9 @@
 
 @media (min-width: 768px) {
 
-    .feedLineGraph-container{
+    .feedBarGraph-container{
         height: 250px;
-        width: 484px;
+        width: 440px;
         margin: 0 2rem 2rem 2rem;
    }
     
