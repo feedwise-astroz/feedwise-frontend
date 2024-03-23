@@ -29,7 +29,6 @@ const FeedForm = ({
 
       const uniqueAnimalTypes = Array.from(new Set(data2.map(cattle => cattle.type)));
 
-      // Set the extracted animal types to the state
       setAnimals(uniqueAnimalTypes);
 
 
@@ -39,26 +38,26 @@ const FeedForm = ({
     getCattleData();
   }, []);
 
-  // Define CSS styles with media queries for responsiveness
+
   const customStyles = {
     control: (provided) => ({
       ...provided,
       borderColor: 'black',
-      maxWidth: '365px', // Set maximum width to 365px
-      width: '90%', // Set width to 90%
+      maxWidth: '365px', 
+      width: '90%', 
       height: '3vw',
       borderRadius: '8px',
       backgroundColor: '#EDEEF3',
       marginBottom: '1vw',
       '@media (max-width: 767px)': {
-        width: 'calc(100% - 21.534px)', /* 21.534px is the total padding (10.767px * 2) */
+        width: 'calc(100% - 21.534px)', 
         height: '55px',
         alignItems: 'center',
         gap: '10.767px',
         flexShrink: 0,
       },
     }),
-    indicatorSeparator: () => ({ display: 'none' }), // Remove vertical line near dropdown arrow
+    indicatorSeparator: () => ({ display: 'none' }), 
   };
 
 

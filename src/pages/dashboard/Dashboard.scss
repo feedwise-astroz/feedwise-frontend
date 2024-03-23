@@ -1,6 +1,6 @@
     .dashboard-container {
       margin: 4rem 2rem 2rem 2rem;
-      display: block; /* Add this line to create a flex container */
+      display: block; 
  
     }
   
@@ -44,8 +44,8 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #ccc; /* Default background color */
-  margin-right: 10px; /* Adjust margin as needed */
+  background-color: #ccc; 
+  margin-right: 10px; 
 }
 
   
@@ -70,7 +70,7 @@
       
       .graph-container {
         flex: 1;
-        margin-bottom: 20px; /* Adjust as needed */
+        margin-bottom: 20px; 
       }
       
   }
