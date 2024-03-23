@@ -76,7 +76,7 @@ const FeedBarGraph = () => {
   };
 
   return (
-    <div className="md:h-64 md:w-120 md:mb-8">
+    <div className="md:h-64 md:w-140 h-64 w-140 md:mb-8">
             <div className="flex justify-between">
             <h2 style={{ textAlign: 'center', marginBottom: '20px', fontWeight: 'bold', fontSize: '22px' }}>Feed Used per Month</h2>
             <div className="flex items-center justify-end mb-4">
