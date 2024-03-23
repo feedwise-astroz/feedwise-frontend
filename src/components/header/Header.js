@@ -27,7 +27,7 @@ const Header = () => {
 
   return (
     <div className="header-card">
-      <Card className="px-0 py-0 mx-0 my-0">
+      <Card>
 <div className="flex justify-between items-center mx-2 my-4">
       <div className="">
         <img
