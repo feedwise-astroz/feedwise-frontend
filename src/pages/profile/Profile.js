@@ -19,6 +19,7 @@ const Profile = () => {
   const [profile, setProfile] = useState(null);
   const [cattles, setCattles] = useState([]);
   const [editMode, setEditMode] = useState(false);
+  const [newCattle, setNewCattle] = useState({ type: '', number: '', averageDailyFeed: '' });
 
   useEffect(() => {
     async function getUserData() {
@@ -48,12 +49,14 @@ const Profile = () => {
 
   const handleSaveCattleDetails = async (e) => {
     e.preventDefault();
-
     setEditMode(false);
-    console.log(cattles)
     await dispatch(updateCattle(cattles));
+  };
 
-  }
+  const handleAddCattle = () => {
+    setCattles([...cattles, newCattle]);
+    setNewCattle({ type: '', number: '', averageDailyFeed: '' });
+  };
 
   return (
     <div>
@@ -79,7 +82,10 @@ const Profile = () => {
               {editMode ? 'Cancel' : 'Edit Cattle Details'}
             </Button1>
             {editMode && (
-              <Button1 onClick={handleSaveCattleDetails} className="submitbtn edit">Save Cattle Details</Button1>
+               <>
+                 <Button1 onClick={handleAddCattle} className="submitbtn edit">Add Cattle</Button1>
+                 <Button1 onClick={handleSaveCattleDetails} className="submitbtn edit">Save Cattle Details</Button1>
+               </>
             )}
           </div>
           <Card className="editCattle">
@@ -94,7 +100,7 @@ const Profile = () => {
               </thead>
               <tbody>
                 {cattles.map((cattle, index) => (
-                  <tr key={cattle._id}>
+                  <tr key={index}>
                     <td>{editMode ? (
                       <select
                         value={cattle.type}
