@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ResponsiveBar } from '@nivo/bar';
 import { MdFilterListAlt } from 'react-icons/md';
 import inventoryService from '../../../redux/features/inventory/inventoryService';
+import './FeedBarGraph.scss'
 
 
 const FeedBarGraph = () => {
@@ -76,8 +77,9 @@ const FeedBarGraph = () => {
   };
 
   return (
-    <div className="md:h-64 md:w-140 h-64 w-140 md:mb-8">
-            <div className="flex justify-between">
+
+    <div className="feedBarGraph-container mx-auto">
+            <div className="flex justify-between mx-auto">
             <h2 style={{ textAlign: 'center', marginBottom: '20px', fontWeight: 'bold', fontSize: '22px' }}>Feed Used per Month</h2>
             <div className="flex items-center justify-end mb-4">
             {showDropdown && (
