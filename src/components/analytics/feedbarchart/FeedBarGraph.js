@@ -77,6 +77,7 @@ const FeedBarGraph = () => {
   };
 
   return (
+
     <div className="feedBarGraph-container mx-auto">
             <div className="flex justify-between mx-auto">
             <h2 style={{ textAlign: 'center', marginBottom: '20px', fontWeight: 'bold', fontSize: '22px' }}>Feed Used per Month</h2>

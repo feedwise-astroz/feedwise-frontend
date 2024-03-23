@@ -7,8 +7,9 @@ import { getCattles } from '../../redux/features/cattle/cattleService';
 import { updateCattle } from '../../redux/features/cattle/cattleSlice';
 import Heading from '../../components/heading/Heading';
 import Card from '../../components/card/Card';
-import './Profile.scss';
+import './Profile.scss'
 import Button1 from '../../components/button1/Button1';
+
 
 const Profile = () => {
   useRedirectLoggedOutUser("/login");
@@ -19,7 +20,6 @@ const Profile = () => {
   const [cattles, setCattles] = useState([]);
   const [editMode, setEditMode] = useState(false);
   const [newCattle, setNewCattle] = useState({ type: '', number: '', averageDailyFeed: '' });
-  const [addedRows, setAddedRows] = useState(0); // Track added rows
 
   useEffect(() => {
     async function getUserData() {
@@ -39,11 +39,6 @@ const Profile = () => {
 
   const handleEditCattleDetails = () => {
     setEditMode(!editMode);
-    // If edit mode is turned off, remove newly added row
-    if (!editMode) {
-      setNewCattle({ type: '', number: '', averageDailyFeed: '' });
-      setAddedRows(0);
-    }
   };
 
   const handleCattleChange = (index, field, value) => {
@@ -61,7 +56,6 @@ const Profile = () => {
   const handleAddCattle = () => {
     setCattles([...cattles, newCattle]);
     setNewCattle({ type: '', number: '', averageDailyFeed: '' });
-    setAddedRows(addedRows + 1); // Increment added rows counter
   };
 
   return (
@@ -70,6 +64,9 @@ const Profile = () => {
       <div className="profile-Details">
         <div className='user'>
           <h2>Profile</h2>
+
+
+
 
           <Card>
             <div>
@@ -139,32 +136,6 @@ const Profile = () => {
                     ) : cattle.averageDailyFeed}</td>
                   </tr>
                 ))}
-                {/* If edit mode is on, show the newly added row */}
-                {editMode && addedRows > 0 && (
-                  <tr>
-                    <td>
-                      <input
-                        type="text"
-                        value={newCattle.type}
-                        onChange={(e) => setNewCattle({...newCattle, type: e.target.value})}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        value={newCattle.number}
-                        onChange={(e) => setNewCattle({...newCattle, number: e.target.value})}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        value={newCattle.averageDailyFeed}
-                        onChange={(e) => setNewCattle({...newCattle, averageDailyFeed: e.target.value})}
-                      />
-                    </td>
-                  </tr>
-                )}
               </tbody>
             </table>
             </div>
