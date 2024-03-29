@@ -33,37 +33,40 @@ const FeedLineGraph = () => {
   }, []);
 
   useEffect(() => {
-    // Filter data based on selected feedName
     if (selectedFeedName) {
-      const formattedFilteredData = filteredData.map((item) => ({
-        x: formatCreatedAtDate(item.purchaseDate),
-        y: item.purchasePrice,
-      }));
+        const groupedData = filteredData.reduce((acc, item) => {
+            const purchaseMonth = formatCreatedAtDate(item.purchaseDate);
+            if (!acc[purchaseMonth]) {
+                acc[purchaseMonth] = 0;
+            }
+            acc[purchaseMonth] += item.purchasePrice;
+            return acc;
+        }, {});
 
-      const updatedData = [
-        {
-          id: "TotalCost",
-          data: formattedFilteredData,
-        },
-      ];
-      setChartData(updatedData);
-      console.log("Filtered Data:", updatedData);
+        const formattedFilteredData = Object.entries(groupedData).map(([month, totalPrice]) => ({
+            x: month,
+            y: totalPrice,
+        }));
+
+        const updatedData = [{
+            id: "TotalCost",
+            data: formattedFilteredData,
+        }];
+        setChartData(updatedData);
     } else {
-      // If no feedName is selected, show all data
-      const formattedData = activedata.map((item) => ({
-        x: formatCreatedAtDate(item.purchaseDate),
-        y: item.purchasePrice,
-      }));
+        const formattedData = activedata.map((item) => ({
+            x: formatCreatedAtDate(item.purchaseDate),
+            y: item.purchasePrice,
+        }));
 
-      const updatedData = [
-        {
-          id: "TotalCost",
-          data: formattedData,
-        },
-      ];
-      setChartData(updatedData);
+        const updatedData = [{
+            id: "TotalCost",
+            data: formattedData,
+        }];
+        setChartData(updatedData);
     }
-  }, [selectedFeedName, activedata, filteredData]);
+}, [selectedFeedName, activedata, filteredData]);
+
 
   const handleFilterButtonClick = () => {
     // Toggle the visibility of the dropdown
@@ -79,6 +82,7 @@ const FeedLineGraph = () => {
       (item) => item.feedName === selectedValue
     );
     setFilteredData(filtered);
+    console.log(filtered)
   };
 
   const formatCreatedAtDate = (dateString) => {

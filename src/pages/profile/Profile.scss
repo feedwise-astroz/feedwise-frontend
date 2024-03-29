@@ -8,7 +8,7 @@
 }
 
 .profile-Details {
-    margin: 0px 300px;
+    margin: 0px 200px;
 }
 
 .profile-cattle {
@@ -40,9 +40,17 @@ select {
   box-sizing: border-box;
 }
 
-
 .card {
   font-size: 16px; 
+}
+
+
+
+/* Adjust button size based on screen size */
+@media only screen and (max-width: 768px) {
+  .button {
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
 }
 
 @media only screen and (max-width: 1300px) {
@@ -100,6 +108,10 @@ select {
     td {
         font-size: 14px;
     }
-
+    
+    input[type=number] {
+        width: 80%; 
+    }
    
 }
+
