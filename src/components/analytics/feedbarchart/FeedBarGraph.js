@@ -33,28 +33,37 @@ const FeedBarGraph = () => {
   }, []);
 
   useEffect(() => {
+    // Function to sum up feedQuantity values for the same month
+    const sumFeedQuantities = (data) => {
+      const aggregatedData = data.reduce((acc, item) => {
+        const month = formatCreatedAtDate(item.purchaseDate);
+        const existingItem = acc.find(data => data.month === month);
+  
+        if (existingItem) {
+          existingItem.feedUsed += item.feedQuantity;
+        } else {
+          acc.push({
+            month: month,
+            feedUsed: item.feedQuantity
+          });
+        }
+  
+        return acc;
+      }, []);
+      return aggregatedData;
+    };
+  
     // Filter data based on selected feedName
     if (selectedFeedName) {
-      const formattedFilteredData = filteredData.map((item) => ({
-        month: formatCreatedAtDate(item.purchaseDate),
-        feedUsed: item.feedQuantity,
-      }));
-
-      // Remove the array wrapping here
+      const formattedFilteredData = sumFeedQuantities(filteredData);
       setChartData(formattedFilteredData);
-      console.log('Filtered Data:', formattedFilteredData);
     } else {
       // If no feedName is selected, show all data
-      const formattedData = activedata.map((item) => ({
-        month: formatCreatedAtDate(item.purchaseDate),
-        feedUsed: item.feedQuantity,
-      }));
-
-      console.log("formated data!!!")
-      console.log(formattedData)
+      const formattedData = sumFeedQuantities(activedata);
       setChartData(formattedData);
     }
   }, [selectedFeedName, activedata, filteredData]);
+  
 
 
   const handleFilterButtonClick = () => {
