@@ -47,7 +47,7 @@ const Forgot = () => {
           <form onSubmit={forgot} >
             <div className="text-left">
               {" "}
-              {/* Add text-left class here */}
+              
               <FormLabel>Email</FormLabel>
             </div>
             <FormInput

@@ -144,20 +144,21 @@ const FeedLineGraph = () => {
           legendPosition: "middle",
           tickValues: [1000, 2000, 4000, 8000],
 
-          // gridValues: [1000, 2000, 4000],
+         
         }}
         colors={customColors}
         enablePoints={false}
         enableGridX={false}
-        enableGridY={true} // Enable gridlines on Y-axis
+        enableGridY={true} 
         gridYValues={[1000, 2000, 4000, 8000]}
-        // enableGridY={false}
+      
         theme={{
           grid: {
             line: {
-              stroke: "green", // Custom color for gridlines
-              strokeWidth: 1, // Adjust thickness if needed
-              strokeDasharray: "4 4", // Adjust dash pattern if needed
+             
+              stroke: "green", 
+              strokeWidth: 1, 
+              strokeDasharray: "4 4", 
             },
           },
         }}

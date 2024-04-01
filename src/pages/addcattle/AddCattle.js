@@ -47,7 +47,7 @@ const AddCattle = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your logic to handle the form submission here
+    
 
     console.log(cattleDetails);
     await dispatch(createNewCattle(cattleDetails));

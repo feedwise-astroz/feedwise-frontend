@@ -50,29 +50,29 @@
 
   .date-picker-wrapper {
     width: 100%;
-    max-width: 400px; /* Set maximum width to 365px */
+    max-width: 400px; 
   }
   
   .date-picker-calendar {
-    width: 100% !important; /* Override default calendar width */
+    width: 100% !important; 
   }
   
   
   @media only screen and (max-width: 767px) {
 
     .card-container {
-      flex-direction: column; /* Change flex direction to column for single-column layout */
+      flex-direction: column; 
     }
   
     .right-column {
-      margin-left: 0; /* Remove the left margin for single-column layout */
+      margin-left: 0; 
     }
   
     .card-container input[type="text"],
     .card-container input[type="number"],
     .card-container input[type="text"]:focus,
     .card-container input[type="number"]:focus {
-      width: calc(100% - 21.534px); /* 21.534px is the total padding (10.767px * 2) */
+      width: calc(100% - 21.534px);
       height: 55px;
       padding: 10.767px;
       align-items: center;

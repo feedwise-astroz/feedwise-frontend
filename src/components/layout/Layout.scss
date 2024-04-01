@@ -1,13 +1,13 @@
 .layout {
     background: #EDEEF3;
-    margin-left: 25%; /* Ensure main content is not covered by the sidebar */
+    margin-left: 25%; 
     padding: 20px;
-    width: 75%; /* Take up the remaining space */
-    height: 100vh; /* Ensure layout takes full height of the viewport */
+    width: 75%; 
+    height: 100vh; 
     overflow-y: auto; /* Allow layout content to scroll if needed */
   }
   
-  /* Add your other layout styling as needed */
+ 
   @media screen and (max-width: 767px) {
     .layout {
       /* Revert to default styles for mobile layout */

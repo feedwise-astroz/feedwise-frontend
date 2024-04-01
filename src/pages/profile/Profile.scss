@@ -46,10 +46,10 @@ select {
 
 
 
-/* Adjust button size based on screen size */
+
 @media only screen and (max-width: 768px) {
   .button {
-    font-size: 12px; /* Reduce font size for smaller screens */
+    font-size: 12px; 
   }
 }
 

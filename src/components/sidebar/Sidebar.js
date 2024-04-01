@@ -42,7 +42,7 @@ const Sidebar = ({ children }) => {
         <div className="hidden md:block profile">
           <div onClick={toggleDropdown} className="profile-content">
             <img
-              src={Logomark} // Replace with the actual path to the photo
+              src={Logomark} 
               alt="Profile"
               className="photo"
             />
@@ -51,9 +51,9 @@ const Sidebar = ({ children }) => {
 
           {isDropdownVisible && (
             <div>
-              {/* Dropdown content */}
+             
               <button onClick={logout}>Logout</button>
-              {/* Add other dropdown items as needed */}
+              
             </div>
           )}
         </div>

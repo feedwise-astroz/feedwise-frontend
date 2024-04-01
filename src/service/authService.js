@@ -8,7 +8,7 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 export const validateEmail = (email) => {
   return email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
 }
-// Register User
+
 export const registerUser = async (userData) => {
   try {
     //console.log(userData)
@@ -28,12 +28,12 @@ export const registerUser = async (userData) => {
     if (error.response && error.response.data && error.response.data.error && Array.isArray(error.response.data.error)) {
       const errors = error.response.data.error;
       
-      // Iterate over the array of error messages and display each one using toast
+     
       errors.forEach(errorMessage => {
           toast.error(errorMessage);
       });
   } else {
-      // If the error response structure is unexpected or does not contain error messages, display a generic error message
+      
       toast.error(error.response.data);
   }
   }
