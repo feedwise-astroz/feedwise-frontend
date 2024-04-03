@@ -6,7 +6,7 @@ import "./pie.scss";
 const FeedPieChart = ({setActiveData, setCustomColors}) => {
   const [activefeed, setActivefeed] = useState([]);
   const [data, setData] = useState([]);
-  // Memoize customColors array
+  
   const customColors = useMemo(() => [
     "#FFC857",
     "#177E89",

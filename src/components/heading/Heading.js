@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Heading.scss"; // Assuming you're still using SCSS for modular styling
+import styles from "./Heading.scss"; 
 
 const Heading = ({ children, heading }) => {
   const headingClass = `${styles.heading} ${heading}`;

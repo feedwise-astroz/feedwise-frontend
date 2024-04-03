@@ -9,7 +9,7 @@ const MobileBottombarItem = ({item}) => {
       <NavLink to={item.path} className={activeLink}>
         <div className="flex flex-col items-center">
           {item.icon}
-          <span className="mt-1">{item.title}</span> {/* Text under the icon */}
+          <span className="mt-1">{item.title}</span> 
         </div>
       </NavLink>
     </div>

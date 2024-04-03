@@ -9,35 +9,35 @@
     font-weight: bold;
     
     flex-direction: column;
-    padding-bottom: 20px; /* Add space at the bottom */
+    padding-bottom: 20px; 
   }
   
   .profile {
     position: absolute;
-    bottom: 20px; /* Adjust as needed */
+    bottom: 20px; 
     left: 0;
     width: 100%;
-    text-align: center; /* Center text horizontally */
+    text-align: center; 
     border-top: 2px solid #ccc;
   }
   
   .profile-content {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
+    align-items: center; 
   }
   
   .profile img {
-    width: 80px; /* Set the width as needed */
-    height: 80px; /* Set the height as needed */
-    object-fit: cover; /* Maintain aspect ratio and fill container */
-    border-radius: 50%; /* Make it circular */
-    margin-bottom: 10px; /* Add some space below the image */
+    width: 80px; 
+    height: 80px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    margin-bottom: 10px; 
     margin-top: 20px;
   }
   
   .profile .name {
-    margin-bottom: 10px; /* Add some space below the name */
+    margin-bottom: 10px; 
   }
 
 
@@ -67,7 +67,7 @@
     padding: 20px 20px;
     margin: 10px 40px;
     text-decoration: none;
-    color: white; /* Set your desired link color */
+    color: white; 
     font-size: larger;
     border-radius: 10px; 
   }
@@ -75,41 +75,41 @@
   .sidebar-link:hover,
   .sidebar-link.active {
     background-color: #EDEEF3;
-    color: #00663C /* Set your desired active link background color */
+    color: #00663C 
   }
 
 
 
   .sidebar-logo {
-    padding-top: 60px; /* Add space above the logo */
-    border-bottom: 2px solid #ccc; /* Add border at the bottom */
+    padding-top: 60px; 
+    border-bottom: 2px solid #ccc; 
     display: flex;
-    justify-content: center; /* Center the logo horizontally */
-    padding-bottom: 20px; /* Add space between border line and logo */
+    justify-content: center; 
+    padding-bottom: 20px; 
   }
   
   .logo {
-    width: 80%; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: 80%; 
+    height: auto; 
   }
 
 
   .sidebar-item-content .sidebar-link svg path {
-    fill: white; /* Set default color */
+    fill: white; 
   }
   
   .sidebar-item-content .sidebar-link:hover svg path {
-    fill: #00663c; /* Set hover color */
+    fill: #00663c; 
   }
   
   .sidebar-item-content .sidebar-link.active svg path {
-    fill: #00663c; /* Set active color */
+    fill: #00663c; 
   }
 
 
 
   @media screen and (max-width: 767px) {
     .sidebar .layout {
-      display: none; /* Hide the sidebar completely on mobile screens */
+      display: none;
     }
   }
