@@ -1,0 +1,115 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100vh;
+    background: linear-gradient(180deg, #249266 0%, #00301D 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    display: flex;
+    font-weight: bold;
+    
+    flex-direction: column;
+    padding-bottom: 20px; 
+  }
+  
+  .profile {
+    position: absolute;
+    bottom: 20px; 
+    left: 0;
+    width: 100%;
+    text-align: center; 
+    border-top: 2px solid #ccc;
+  }
+  
+  .profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  .profile img {
+    width: 80px; 
+    height: 80px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    margin-bottom: 10px; 
+    margin-top: 20px;
+  }
+  
+  .profile .name {
+    margin-bottom: 10px; 
+  }
+
+
+  .sidebar-items {
+  
+    width: auto;
+    flex: 1;
+    display: flex;
+    margin-top: 40px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sidebar-item {
+  
+   
+    width: 100%;
+  }
+  
+  .sidebar-item-content {
+
+    width: 100%;
+  }
+  
+  .sidebar-link {
+    display: block;
+    padding: 20px 20px;
+    margin: 10px 40px;
+    text-decoration: none;
+    color: white; 
+    font-size: larger;
+    border-radius: 10px; 
+  }
+  
+  .sidebar-link:hover,
+  .sidebar-link.active {
+    background-color: #EDEEF3;
+    color: #00663C 
+  }
+
+
+
+  .sidebar-logo {
+    padding-top: 60px; 
+    border-bottom: 2px solid #ccc; 
+    display: flex;
+    justify-content: center; 
+    padding-bottom: 20px; 
+  }
+  
+  .logo {
+    width: 80%; 
+    height: auto; 
+  }
+
+
+  .sidebar-item-content .sidebar-link svg path {
+    fill: white; 
+  }
+  
+  .sidebar-item-content .sidebar-link:hover svg path {
+    fill: #00663c; 
+  }
+  
+  .sidebar-item-content .sidebar-link.active svg path {
+    fill: #00663c; 
+  }
+
+
+
+  @media screen and (max-width: 767px) {
+    .sidebar .layout {
+      display: none;
+    }
+  }

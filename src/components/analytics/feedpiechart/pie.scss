@@ -1,0 +1,41 @@
+.pie-container{
+  width:20rem; /* 80% of the viewport width */
+  height: 20rem;
+  font-size: 32px;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+
+@media (min-width: 900px) {
+
+  .pie-container{
+      width: 20rem; /* 80% of the viewport width */
+      height: 20rem; /* 80% of the viewport height */
+      font-size: 24px;
+      margin: 0 auto;
+      padding-top: 1rem;
+    }
+  
+    .pie-container h2{
+      margin-bottom: 1rem;
+    }
+  
+  }
+
+
+@media (min-width: 768px) {
+
+.pie-container{
+    width: 30rem; /* 80% of the viewport width */
+    height: 30rem; /* 80% of the viewport height */
+    font-size: 24px;
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
+
+  .pie-container h2{
+    margin-bottom: 1rem;
+  }
+
+}

@@ -1,0 +1,84 @@
+.card-container {
+    display: flex;
+    justify-content: space-between;
+   margin: 20px 40px;
+    
+  }
+ .addfeed{
+    padding: 0;
+    margin: 60px 30px 0px 30px;
+  } 
+  
+  .left-column {
+    flex: 1;
+  }
+  
+  .right-column {
+    flex: 1;
+    margin-left: 70px;
+  }
+
+  .card-container{
+    margin-top: 50px;
+  }
+  .card-container input[type="text"],
+  .card-container input[type="number"],
+  .card-container input[type="text"]:focus,
+  .card-container input[type="number"]:focus {
+    border: 1px solid #000; 
+    border-radius: 10px;
+    background: #EDEEF3;
+    width: 90%; 
+    height: 3vw;
+    max-width: 365px; 
+    margin-bottom: 3vw; 
+    padding: 10px;
+  }
+  
+
+.card-container select{
+    width: 300px;
+    height: 15px;
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 50px;
+  }
+
+  .date-picker-wrapper {
+    width: 100%;
+    max-width: 400px; 
+  }
+  
+  .date-picker-calendar {
+    width: 100% !important; 
+  }
+  
+  
+  @media only screen and (max-width: 767px) {
+
+    .card-container {
+      flex-direction: column; 
+    }
+  
+    .right-column {
+      margin-left: 0; 
+    }
+  
+    .card-container input[type="text"],
+    .card-container input[type="number"],
+    .card-container input[type="text"]:focus,
+    .card-container input[type="number"]:focus {
+      width: calc(100% - 21.534px);
+      height: 55px;
+      padding: 10.767px;
+      align-items: center;
+      gap: 10.767px;
+      flex-shrink: 0;
+    }
+  }
+  
+  

@@ -1,0 +1,79 @@
+    .dashboard-container {
+
+      margin: 4rem 2rem 4rem 2rem;
+      display: block; 
+ 
+    }
+  
+    .graph-left-column,
+    .graph-right-column,
+    .graph-container {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+
+  
+    .graph-container {
+     margin-bottom: 2rem;
+    }
+
+        
+    .total-feed-left-heading{
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: 1rem;
+      }
+
+.piechart-feed-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 4rem;
+}
+
+.piechart-feed-details {
+  display: flex;
+  align-items: center;
+}
+
+.piechart-feed-list p{
+    font-size: 1.2rem;
+  }
+
+.color-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc; 
+  margin-right: 10px; 
+}
+
+  
+  
+  @media (min-width: 768px) {
+    .dashboard-container {
+        display: flex;
+        flex-direction: row;
+        margin: 4rem 2rem 2rem 2rem;
+      }
+      
+      .graph-left-column {
+        flex: 1;
+      }
+      
+      .graph-right-column {
+        margin-left: 2rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .graph-container {
+        flex: 1;
+        margin-bottom: 20px; 
+      }
+      
+  }
+  
+  

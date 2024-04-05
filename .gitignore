@@ -128,3 +128,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+build/
+
+git clean -f tailwind.config.js
+
+.DS_Store

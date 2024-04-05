@@ -1,0 +1,35 @@
+.heading {
+    display: flex;
+    width: 1rem;
+    height: 1rem;
+    padding: 3rem 0.5rem 4rem 1rem;
+    align-items: center;
+    flex-shrink: 0;
+    color: #00663C;
+    font-family: Roboto;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+@media (min-width: 768px) {
+
+    .heading {
+        display: flex;
+        width: 1075px;
+        height: 118px;
+        padding: 24px 824px 64px 26px;
+        align-items: center;
+        flex-shrink: 0;
+        color: #00663C;
+        font-family: Roboto;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    
+    
+    }

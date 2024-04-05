@@ -1,0 +1,21 @@
+.layout {
+    background: #EDEEF3;
+    margin-left: 25%; 
+    padding: 20px;
+    width: 75%; 
+    height: 100vh; 
+    overflow-y: auto; /* Allow layout content to scroll if needed */
+  }
+  
+ 
+  @media screen and (max-width: 767px) {
+    .layout {
+      /* Revert to default styles for mobile layout */
+      margin-left: 0;
+      padding: 0;
+      width: auto;
+      height: auto;
+      overflow-y: auto;
+    }
+  }
+  

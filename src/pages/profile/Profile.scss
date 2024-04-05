@@ -1,0 +1,117 @@
+.user h2 {
+    color: var(--Natural-Black, #000);
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.profile-Details {
+    margin: 0px 200px;
+}
+
+.profile-cattle {
+    margin-top: 20px; 
+}
+
+table,
+th,
+td {
+    padding: 20px; 
+    border: 1px solid #ddd;
+}
+
+.editCattle {
+    margin: 0 auto;
+    overflow-x: auto; 
+}
+
+.edit{
+    margin: 10px;
+}
+
+
+.editCattle input[type='text'],
+.editCattle input[type='number'],
+select {
+  width: 100%; 
+  padding: 8px; 
+  box-sizing: border-box;
+}
+
+.card {
+  font-size: 16px; 
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+  .button {
+    font-size: 12px; 
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+
+    .profile-Details {
+        margin: 0px;
+    }
+
+    table,
+    th,
+    td {
+        padding: 15px; 
+    }
+
+   
+    .user h2 {
+        font-size: 22px;
+    }
+
+   
+    th {
+        font-size: 16px;
+    }
+
+  
+    td {
+        font-size: 16px;
+    }
+
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .profile-Details {
+        margin: 0px 20px; 
+    }
+
+    table,
+    th,
+    td {
+        padding: 10px; 
+    }
+
+    
+    .user h2 {
+        font-size: 20px;
+    }
+
+   
+    th {
+        font-size: 14px;
+    }
+
+   
+    td {
+        font-size: 14px;
+    }
+    
+    input[type=number] {
+        width: 80%; 
+    }
+   
+}
+

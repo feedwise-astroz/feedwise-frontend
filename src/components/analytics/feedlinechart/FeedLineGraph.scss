@@ -1,0 +1,19 @@
+.feedLineGraph-container{
+    height: 300px;
+    width: 280px;
+    margin: 0 2rem 4rem 2rem;
+    font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+
+    .feedLineGraph-container{
+        height: 250px;
+        width: 484px;
+        margin: 0 2rem 2rem 2rem;
+   }
+    
+    }
+
+
+    // h-30 w-60 md:h-64 md:w-120 md:mb-8 
