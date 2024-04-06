@@ -6,6 +6,7 @@ import { SET_LOGIN, selectName } from "../../redux/features/auth/authSlice";
 import { logoutUser } from "../../service/authService";
 import { useState } from "react";
 import Card from "../card/Card";
+import Logomark from "../../assets/logo/profile-photo.jpg";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const Header = () => {
       <div className="relative">
         <div onClick={toggleDropdown} className="flex items-center cursor-pointer">
           <img
-            src="path/to/profile-photo.jpg" 
+            src={Logomark} 
             alt="Profile"
             className="photo rounded-full h-8 w-8 mr-2"
           />

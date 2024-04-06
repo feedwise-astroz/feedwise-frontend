@@ -8,7 +8,7 @@ import { SET_LOGIN, selectName } from "../../redux/features/auth/authSlice";
 import { logoutUser } from "../../service/authService";
 import MobileBottombar from "./MobileBottombar";
 import Logo from "../../assets/logo/Feedwise_Logo.svg";
-import Logomark from "../../assets/logo/logomark.png";
+import Logomark from "../../assets/logo/profile-photo.jpg";
 
 const Sidebar = ({ children }) => {
   const dispatch = useDispatch();
